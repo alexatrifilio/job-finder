@@ -1,0 +1,20 @@
+.filter-form{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+
+.form-item{
+    background-color: $tertiary;
+    border: 1px solid $secondary;
+    border-radius: 5px;
+    color: $font-primary;
+    height: 30px;
+    margin-right: 10px;
+    padding: 0px 20px;
+    width: 200px;
+
+    &:hover{
+        box-shadow: -3px 4px 5px 0px rgba(255,137,40,0.61);
+    }
+}

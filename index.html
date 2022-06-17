@@ -5,39 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Careers </title>
+    <link rel="stylesheet" href="./css/sass/main.css">
 </head>
 <body>
-    <header>
+    <header class="top">
         <div>
-            <h1> Careers </h1>
+            <h1 class="site-name"> Careers </h1>
         </div>
-        <nav id="primary-nav">
-            <ul>
-                <li><a href="./index.html"> Home </a></li>
-                <li><a href="#"> Create Job </a></li>
+        <nav id="primary-nav" class="primary-nav">
+            <ul class="nav-list">
+                <li class="list-item"><a href="./index.html" class="nav-link"> Home </a></li>
+                <li class="list-item"><a href="#" class="nav-link"> Create Job </a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <form action="">
-            <div>
-                <select name="location" id="select-location"></select>
+        <div class="container">
+            <form action="" class="filter-form">
+                <div class="form-items">
+                    <select name="location" id="select-location" class="form-item">
+                        <option value="location"> Location </option>
+                    </select>
+                    <select name="seniority" id="select-seniority" class="form-item">
+                        <option value="seniority"> Seniority </option>
+                    </select>
+                    <select name="category" id="select-category" class="form-item">
+                        <option value="category"> Category </option>
+                    </select>
+                </div>
+                <div class="form-btns">
+                    <button class="btn primary-btn"> Search </button>
+                    <button class="btn secondary-btn"> Clear </button>
+                </div>
+            </form>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Frontend Developer</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam natus culpa ea voluptatum maiores aliquid reprehenderit numquam odio debitis voluptate.</p>
+                    <div class="tag-container">
+                        <span class="tag"> Argentina </span>
+                        <span class="tag"> Development </span>
+                        <span class="tag"> Junior </span>
+                    </div>
+                    <a href="#" class="btn primary-btn"> See Details</a>
+                </div>
             </div>
-            <div>
-                <select name="seniority" id="select-seniority"></select>
-            </div>
-            <div>
-                <select name="category" id="select-category"></select>
-            </div>
-        </form>
-        <div>
-            <button> Search </button>
-            <button> Clear </button>
         </div>
     </main>
     
 
-    <footer> Hecho por Vanessa Neira y Alejandra Trifilio</footer>
+    <footer class="footer"> Hecho por Vanessa Neira y Alejandra Trifilio</footer>
     <script src="/app/main.js"></script>
 </body>
 </html>

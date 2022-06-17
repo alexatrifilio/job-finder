@@ -1,0 +1,26 @@
+.btn{
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px 12px;
+}
+
+.primary-btn{
+    background-color: $secondary;
+    color: $font-secondary;
+
+    &:hover{
+        background-color: $accent;
+    }
+}
+
+.secondary-btn{
+    border: 1px solid $secondary;
+    background-color: $tertiary;
+    color: $secondary;
+
+    &:hover{
+        border: 1px solid $accent;
+        color: $accent;
+    }
+}
