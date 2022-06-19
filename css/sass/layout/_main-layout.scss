@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap');
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: $tertiary;
+    color: $font-primary;
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.site-name{
+    margin: 0;
+}
+
+.container{
+    margin: auto;
+    max-width: (100% / 1.5);
+    padding-bottom: 50px;
+}

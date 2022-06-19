@@ -1,0 +1,14 @@
+.card{
+    border: 1px solid $font-primary;
+    border-radius: 5px;
+    max-width: 300px;
+    padding: $padding;
+
+    .tag-container{
+        .tag{
+            background-color: $accent;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+    }
+}

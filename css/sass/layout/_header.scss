@@ -1,0 +1,21 @@
+.top{
+    background-color: $primary;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+
+    .primary-nav{
+        .nav-list{
+            display: flex;
+            .list-item{
+                list-style: none;
+
+                .nav-link{
+                    color: $font-primary;
+                    margin-right: 20px;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
