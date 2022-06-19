@@ -23,7 +23,7 @@ a {
 
 .container {
   margin: auto;
-  max-width: 66.6666666667%;
+  max-width: 80%;
   padding-bottom: 50px;
 }
 
@@ -66,6 +66,11 @@ a {
   box-shadow: -3px 4px 5px 0px rgba(255, 137, 40, 0.425);
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .btn {
   border: none;
   border-radius: 5px;
@@ -94,13 +99,31 @@ a {
 .card {
   border: 1px solid #17224e;
   border-radius: 5px;
-  max-width: 300px;
+  margin: 15px 5px;
+  height: 300px;
+  width: 300px;
   padding: 20px;
+}
+.card .title {
+  font-size: 20px;
+}
+.card .description {
+  font-size: 15px;
+  max-height: 30%;
+  overflow: hidden;
 }
 .card .tag-container .tag {
   background-color: #ff8928;
+  border-radius: 5px;
   display: inline-block;
-  margin-bottom: 20px;
+  font-size: small;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 5px;
+}
+.card .btn {
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .footer {
