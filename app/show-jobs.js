@@ -36,8 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var cardContainer = document.getElementById('card-container');
-cardContainer.classList.add('card-container');
-var cardCreator = function () { return __awaiter(_this, void 0, void 0, function () {
+var cardsCreator = function () { return __awaiter(_this, void 0, void 0, function () {
     var jobs;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -45,42 +44,15 @@ var cardCreator = function () { return __awaiter(_this, void 0, void 0, function
             case 1:
                 jobs = _a.sent();
                 cardContainer.innerHTML = '';
-                console.log(jobs[1].location);
                 jobs.forEach(function (element) {
-                    var card = document.createElement('div');
-                    card.classList.add('card');
-                    var cardTitle = document.createElement('h2');
-                    cardTitle.classList.add('title');
-                    cardTitle.appendChild(document.createTextNode(element.name));
-                    var cardDescription = document.createElement('p');
-                    cardDescription.classList.add('description');
-                    cardDescription.appendChild(document.createTextNode(element.description));
-                    var tagCont = document.createElement('div');
-                    tagCont.classList.add('tag-container');
-                    var locationTag = document.createElement('span');
-                    locationTag.classList.add('tag');
-                    locationTag.appendChild(document.createTextNode(element.location));
-                    var categoryTag = document.createElement('span');
-                    categoryTag.classList.add('tag');
-                    categoryTag.appendChild(document.createTextNode(element.category));
-                    var seniorityTag = document.createElement('span');
-                    seniorityTag.classList.add('tag');
-                    seniorityTag.appendChild(document.createTextNode(element.seniority));
-                    var btn = document.createElement('a');
-                    btn.classList.add('btn', 'primary-btn');
-                    btn.setAttribute('href', '#');
-                    btn.appendChild(document.createTextNode('See Details'));
-                    card.appendChild(cardTitle);
-                    card.appendChild(cardDescription);
-                    tagCont.appendChild(locationTag);
-                    tagCont.appendChild(categoryTag);
-                    tagCont.appendChild(seniorityTag);
-                    card.appendChild(tagCont);
-                    card.appendChild(btn);
-                    cardContainer.appendChild(card);
+                    cardCreator(element);
                 });
                 return [2 /*return*/];
         }
     });
 }); };
-cardCreator();
+showLoader();
+setTimeout(function () {
+    cardsCreator();
+    hideLoader();
+}, 5000);
