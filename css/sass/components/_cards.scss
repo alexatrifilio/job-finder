@@ -6,12 +6,24 @@
     width: 300px;
     padding: $padding;
 
+    &.card-large{
+        height: auto;
+        width: 400px;
+    }
+
+    &.single-card{
+        margin: auto;
+    }
+
     .title{
         font-size: 20px;
     }
 
     .description{
         font-size: 15px;
+    }
+
+    .min-description{
         max-height: 30%;
         overflow: hidden;
     }

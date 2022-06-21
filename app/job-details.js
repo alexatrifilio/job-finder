@@ -35,24 +35,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var cardContainer = document.getElementById('card-container');
-var cardsCreator = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs;
+var showJob = function () { return __awaiter(_this, void 0, void 0, function () {
+    var job, thisCard, fullDescription, unseeBtn, btnEdit, btnDel;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, getJobs()];
+            case 0: return [4 /*yield*/, getJob(id)];
             case 1:
-                jobs = _a.sent();
-                cardContainer.innerHTML = '';
-                jobs.forEach(function (element) {
-                    cardCreator(element);
-                });
+                job = _a.sent();
+                cardCreator(job);
+                thisCard = document.getElementById("card-" + id);
+                thisCard.classList.add('single-card', 'card-large');
+                fullDescription = document.getElementById('card-description');
+                fullDescription.classList.remove('min-description');
+                unseeBtn = document.getElementById('btn-details');
+                unseeBtn.classList.remove('btn', 'primary-btn');
+                unseeBtn.classList.add('hide');
+                btnEdit = document.getElementById('btn-edit');
+                btnEdit.classList.add('btn', 'primary-btn');
+                btnDel = document.getElementById('btn-delete');
+                btnDel.classList.add('btn', 'secondary-btn');
                 return [2 /*return*/];
         }
     });
 }); };
 showLoader();
 setTimeout(function () {
-    cardsCreator();
+    showJob();
     hideLoader();
 }, 5000);
