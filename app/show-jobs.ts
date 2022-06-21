@@ -5,7 +5,7 @@ const cardContainer: HTMLElement = document.getElementById('card-container') as 
 
 const cardsCreator = async () => {
 
-    const jobs: Job []  = await getJobs ();
+    const jobs = await getJobs ();
 
     cardContainer.innerHTML = '';
     

@@ -1,5 +1,5 @@
 
-const showJob = async () => {
+const showJob = async (id: Number) => {
     const job = await getJob(id);
 
     cardCreator(job)
@@ -24,6 +24,6 @@ showLoader()
 
 
 setTimeout(() => {
-    showJob();
+    showJob(0);
     hideLoader()
 }, 5000);
