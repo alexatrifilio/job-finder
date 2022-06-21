@@ -1,38 +1,6 @@
 /* Colours */
 /* Spacing */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap");
-*, *::after, *::before {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #fcf2e9;
-  color: #17224e;
-  font-family: "Space Grotesk", sans-serif;
-  height: 100vh;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-main {
-  min-height: 100%;
-}
-
-.site-name {
-  margin: 0;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  max-width: 80%;
-  padding-bottom: 50px;
-}
-
 .top {
   background-color: #68d388;
   box-shadow: -3px 4px 5px 0px rgba(132, 88, 179, 0.425);
@@ -73,10 +41,6 @@ main {
     transform: scale(1.75);
   }
 }
-.hide {
-  display: none;
-}
-
 .filter-form {
   display: flex;
   justify-content: space-between;
@@ -109,6 +73,7 @@ main {
   border: none;
   border-radius: 5px;
   height: 30px;
+  margin-right: 10px;
   padding: 5px 12px;
 }
 
@@ -138,11 +103,20 @@ main {
   width: 300px;
   padding: 20px;
 }
+.card.card-large {
+  height: auto;
+  width: 400px;
+}
+.card.single-card {
+  margin: auto;
+}
 .card .title {
   font-size: 20px;
 }
 .card .description {
   font-size: 15px;
+}
+.card .min-description {
   max-height: 30%;
   overflow: hidden;
 }
@@ -162,6 +136,42 @@ main {
 
 .footer {
   background-color: #68d388;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fcf2e9;
+  color: #17224e;
+  font-family: "Space Grotesk", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  min-height: 100%;
+}
+
+.site-name {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 80%;
+  padding-bottom: 50px;
+}
+
+.hide {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
