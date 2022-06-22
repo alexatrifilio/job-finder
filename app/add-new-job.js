@@ -26,7 +26,7 @@ submitButton.addEventListener('click', function (e) {
     formData.forEach(function (value, key) {
         formDataJson[key] = value;
     });
-    //console.log(formDataJson);
-    //console.log(JSON.stringify(formDataJson));
     postJob(formDataJson);
+    // clear form
+    form.reset();
 });

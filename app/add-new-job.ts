@@ -31,9 +31,10 @@ submitButton.addEventListener('click', (e) => {
             formDataJson[key] = value;
         }
         );
-        //console.log(formDataJson);
-        //console.log(JSON.stringify(formDataJson));
         postJob(formDataJson);
+
+        // clear form
+        form.reset();
     }
 );
 
