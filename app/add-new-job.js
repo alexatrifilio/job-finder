@@ -11,19 +11,20 @@ createTextAreaField('form-add-job', 'description', 'Description', 'Job descripti
 createInputField('form-add-job', 'text', 'location', '', 'Location', 'required');
 createInputField('form-add-job', 'text', 'seniority', '', 'Seniority', 'required');
 createInputField('form-add-job', 'text', 'category', '', 'Category', 'required');
+var addJob = document.getElementById('form-add-job');
 // add back button
 var btnBack = document.createElement('a');
 btnBack.classList.add('btn', 'primary-btn');
 btnBack.setAttribute('href', './index.html');
 btnBack.setAttribute('id', 'btn-back');
 btnBack.appendChild(document.createTextNode('Back'));
-document.getElementById('form-add-job').appendChild(btnBack);
+addJob.appendChild(btnBack);
 // add submit button
 var submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
 submitButton.setAttribute('class', 'btn btn-primary');
 submitButton.appendChild(document.createTextNode('Add'));
-document.getElementById('form-add-job').appendChild(submitButton);
+addJob.appendChild(submitButton);
 // add event listener to submit button
 submitButton.addEventListener('click', function (e) {
     e.preventDefault();

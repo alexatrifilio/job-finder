@@ -1,5 +1,5 @@
 
-const showJob = async (id: Number) => {
+const showJob = async (id: string) => {
     const job = await getJob(id);
 
     cardCreator(job)
@@ -15,6 +15,7 @@ const showJob = async (id: Number) => {
 
     const btnEdit = document.getElementById('btn-edit') as HTMLAnchorElement;
     btnEdit.classList.add('btn', 'primary-btn');
+    btnEdit.setAttribute('href', `./edit-job.html?id=${id}`);
 
     const btnDel = document.getElementById('btn-delete') as HTMLAnchorElement;
     btnDel.classList.add('btn', 'secondary-btn');
@@ -24,6 +25,9 @@ showLoader()
 
 
 setTimeout(() => {
-    showJob(0);
+    showJob(id);
     hideLoader()
 }, 5000);
+
+
+//loading(showJob(id));

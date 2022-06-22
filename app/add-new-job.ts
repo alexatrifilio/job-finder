@@ -14,13 +14,15 @@ createInputField('form-add-job', 'text', 'location', '', 'Location', 'required')
 createInputField('form-add-job', 'text', 'seniority', '', 'Seniority', 'required');
 createInputField('form-add-job', 'text', 'category', '', 'Category', 'required');
 
+const addJob = document.getElementById('form-add-job') as HTMLFormElement;
+
 // add back button
 const btnBack = document.createElement('a');
 btnBack.classList.add('btn','primary-btn');
 btnBack.setAttribute('href', './index.html');
 btnBack.setAttribute('id', 'btn-back');
 btnBack.appendChild(document.createTextNode('Back'));
-document.getElementById('form-add-job').appendChild(btnBack);
+addJob.appendChild(btnBack);
 
 
 // add submit button
@@ -28,12 +30,12 @@ const submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
 submitButton.setAttribute('class', 'btn btn-primary');
 submitButton.appendChild(document.createTextNode('Add'));
-document.getElementById('form-add-job').appendChild(submitButton);
+addJob.appendChild(submitButton);
 
 // add event listener to submit button
 submitButton.addEventListener('click', (e) => {
         e.preventDefault();
-        const form = document.getElementById('form-add-job');
+        const form = document.getElementById('form-add-job') as HTMLFormElement;
         const formData = new FormData(form);
         const formDataJson = {};
         formData.forEach((value, key) => {

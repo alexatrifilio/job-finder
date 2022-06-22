@@ -4,7 +4,7 @@ type Job = {
     location: string,
     category: string,
     seniority: string,
-    id: number
+    id: string
 }
 
 
@@ -18,6 +18,15 @@ const showLoader = () => {
 
 const hideLoader = () => {
     loader.classList.remove('loading');
+}
+
+const loading = (creator) => {
+    showLoader()
+
+    setTimeout( async () => {
+        await creator;
+        hideLoader()
+    }, 5000);
 }
 
 // Card Creator //
@@ -91,7 +100,7 @@ function createInputField(
     fielTitle: string, 
     placeholder: string, 
     required: string): void {
-    const form = document.getElementById(formId);
+    const form = document.getElementById(formId) as HTMLFormElement;
     const inputContainer =  document.createElement('div');
     const label = document.createElement('label');
     const input = document.createElement('input');
@@ -115,7 +124,7 @@ function createSelectField(
     name: string, 
     fieldTitle: string, 
     options: string[]): void {
-    const form = document.getElementById(formId);
+    const form = document.getElementById(formId) as HTMLFormElement;
     const selectContainer = document.createElement('div');
     const label = document.createElement('label');
     const select = document.createElement('select');
@@ -144,7 +153,7 @@ function createTextAreaField(
     name: string,
     fieldTitle: string,
     placeholder: string): void {
-    const form = document.getElementById(formId);
+    const form = document.getElementById(formId) as HTMLFormElement;
     const textAreaContainer = document.createElement('div');
     const label = document.createElement('label');
     const textArea = document.createElement('textarea');
