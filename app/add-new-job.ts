@@ -14,6 +14,15 @@ createInputField('form-add-job', 'text', 'location', '', 'Location', 'required')
 createInputField('form-add-job', 'text', 'seniority', '', 'Seniority', 'required');
 createInputField('form-add-job', 'text', 'category', '', 'Category', 'required');
 
+// add back button
+const btnBack = document.createElement('a');
+btnBack.classList.add('btn','primary-btn');
+btnBack.setAttribute('href', './index.html');
+btnBack.setAttribute('id', 'btn-back');
+btnBack.appendChild(document.createTextNode('Back'));
+document.getElementById('form-add-job').appendChild(btnBack);
+
+
 // add submit button
 const submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
@@ -33,8 +42,10 @@ submitButton.addEventListener('click', (e) => {
         );
         postJob(formDataJson);
 
-        // clear form
-        form.reset();
+        
+        alert('Job added successfully');
+        window.location.href = './index.html';
+        
     }
 );
 
