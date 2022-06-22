@@ -56,3 +56,4 @@ setTimeout(function () {
     cardsCreator();
     hideLoader();
 }, 5000);
+// loading(cardsCreator());

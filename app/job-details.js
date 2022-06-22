@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var showJob = function () { return __awaiter(_this, void 0, void 0, function () {
+var showJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
     var job, thisCard, fullDescription, unseeBtn, btnEdit, btnDel;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -52,6 +52,7 @@ var showJob = function () { return __awaiter(_this, void 0, void 0, function () 
                 unseeBtn.classList.add('hide');
                 btnEdit = document.getElementById('btn-edit');
                 btnEdit.classList.add('btn', 'primary-btn');
+                btnEdit.setAttribute('href', "./edit-job.html?id=" + id);
                 btnDel = document.getElementById('btn-delete');
                 btnDel.classList.add('btn', 'secondary-btn');
                 return [2 /*return*/];
@@ -60,6 +61,7 @@ var showJob = function () { return __awaiter(_this, void 0, void 0, function () 
 }); };
 showLoader();
 setTimeout(function () {
-    showJob();
+    showJob(id);
     hideLoader();
 }, 5000);
+//loading(showJob(id));
