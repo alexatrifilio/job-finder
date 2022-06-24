@@ -41,7 +41,7 @@ var showJob = function (id) { return __awaiter(_this, void 0, void 0, function (
         switch (_a.label) {
             case 0:
                 showLoader();
-                return [4 /*yield*/, getJob(id, 'jobs')];
+                return [4 /*yield*/, getElement(id, 'jobs')];
             case 1:
                 job = _a.sent();
                 setTimeout(function () {

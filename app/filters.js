@@ -1,6 +1,6 @@
 var locationSelect = document.getElementById('select-location');
-addOptions(getJobs('country'), locationSelect);
+addOptions(getElements('country'), locationSelect);
 var senioritySelect = document.getElementById('select-seniority');
-addOptions(getJobs('seniority'), senioritySelect);
+addOptions(getElements('seniority'), senioritySelect);
 var categorySelect = document.getElementById('select-category');
-addOptions(getJobs('category'), categorySelect);
+addOptions(getElements('category'), categorySelect);

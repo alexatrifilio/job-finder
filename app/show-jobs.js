@@ -43,7 +43,7 @@ var cardsCreator = function () { return __awaiter(_this, void 0, void 0, functio
             case 0:
                 showLoader();
                 cardContainer.innerHTML = '';
-                return [4 /*yield*/, getJobs('jobs')];
+                return [4 /*yield*/, getElements('jobs')];
             case 1:
                 jobs = _a.sent();
                 setTimeout(function () {
