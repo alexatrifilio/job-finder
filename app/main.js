@@ -1,3 +1,4 @@
+// Loading component //
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,27 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-// Loading component //
 var loader = document.getElementById('loader');
 var showLoader = function () {
     loader.classList.add('loading');
 };
 var hideLoader = function () {
     loader.classList.remove('loading');
-};
-var loading = function (creator) {
-    showLoader();
-    setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, creator];
-                case 1:
-                    _a.sent();
-                    hideLoader();
-                    return [2 /*return*/];
-            }
-        });
-    }); }, 5000);
 };
 // Card Creator //
 var cardCreator = function (job) {
@@ -168,3 +154,22 @@ function createTextAreaField(formId, name, fieldTitle, placeholder) {
     textAreaContainer.appendChild(textArea);
     form.appendChild(textAreaContainer);
 }
+// Adding options to select elements //
+var addOptions = function (options, append) { return __awaiter(_this, void 0, void 0, function () {
+    var elements, _i, elements_1, i, opt;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, options];
+            case 1:
+                elements = _a.sent();
+                console.log(options);
+                for (_i = 0, elements_1 = elements; _i < elements_1.length; _i++) {
+                    i = elements_1[_i];
+                    opt = document.createElement('option');
+                    opt.appendChild(document.createTextNode(i.name));
+                    append.appendChild(opt);
+                }
+                return [2 /*return*/];
+        }
+    });
+}); };

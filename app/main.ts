@@ -1,12 +1,3 @@
-type Job = {
-    name: string,
-    description: string,
-    location: string,
-    category: string,
-    seniority: string,
-    id: string
-}
-
 
 // Loading component //
 
@@ -20,14 +11,6 @@ const hideLoader = () => {
     loader.classList.remove('loading');
 }
 
-const loading = (creator) => {
-    showLoader()
-
-    setTimeout( async () => {
-        await creator;
-        hideLoader()
-    }, 5000);
-}
 
 // Card Creator //
 
@@ -123,7 +106,7 @@ function createSelectField(
     formId: string, 
     name: string, 
     fieldTitle: string, 
-    options: string[]): void {
+    options: object): void {
     const form = document.getElementById(formId) as HTMLFormElement;
     const selectContainer = document.createElement('div');
     const label = document.createElement('label');
@@ -170,5 +153,20 @@ function createTextAreaField(
     form.appendChild(textAreaContainer)
 }
 
+// Adding options to select elements //
+
+const addOptions = async (options: Tag [], append: HTMLElement) => {
+
+    const elements = await options
+    
+    console.log(options);
+    
+    for (let i of elements){
+
+        const opt = document.createElement('option');
+        opt.appendChild(document.createTextNode(i.name));
+        append.appendChild(opt);
+    }
+}
 
 

@@ -5,23 +5,26 @@ const cardContainer: HTMLElement = document.getElementById('card-container') as 
 
 const cardsCreator = async () => {
 
-    const jobs = await getJobs ();
+    showLoader()
 
     cardContainer.innerHTML = '';
+
+    const jobs = await getJobs('jobs');
+
+    setTimeout(() => {
+
+        jobs.forEach((element) => {
+            cardCreator(element);
+        } );
+        hideLoader()
+
+    }, 1500);
     
-    jobs.forEach((element) => {
-        cardCreator(element);
-    } );
+    
 }
 
 
-showLoader()
+cardsCreator()
 
 
-setTimeout(() => {
-    cardsCreator();
-    hideLoader()
-}, 5000);
-
-// loading(cardsCreator());
 

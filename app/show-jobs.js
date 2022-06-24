@@ -40,20 +40,20 @@ var cardsCreator = function () { return __awaiter(_this, void 0, void 0, functio
     var jobs;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, getJobs()];
+            case 0:
+                showLoader();
+                cardContainer.innerHTML = '';
+                return [4 /*yield*/, getJobs('jobs')];
             case 1:
                 jobs = _a.sent();
-                cardContainer.innerHTML = '';
-                jobs.forEach(function (element) {
-                    cardCreator(element);
-                });
+                setTimeout(function () {
+                    jobs.forEach(function (element) {
+                        cardCreator(element);
+                    });
+                    hideLoader();
+                }, 1500);
                 return [2 /*return*/];
         }
     });
 }); };
-showLoader();
-setTimeout(function () {
-    cardsCreator();
-    hideLoader();
-}, 5000);
-// loading(cardsCreator());
+cardsCreator();
