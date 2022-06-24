@@ -44,18 +44,15 @@ var categorySelect = document.getElementById('select-category');
 addOptions(getJobs('category'), categorySelect);
 // Add query params to URL //
 var parameters = new URLSearchParams(window.location.search);
-// ¿Cómo hacer para que se mantengan en el option?
-var queryParams = function (select, param) { return __awaiter(_this, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        select.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var target = (e.target.value).toLowerCase();
-            parameters.set(param, target);
-            window.location.href = window.location.pathname + "?" + parameters.toString();
-        });
-        return [2 /*return*/];
+//¿Cómo hacer para que se mantengan en el option?
+var queryParams = function (select, param) {
+    select.addEventListener('change', function (e) {
+        e.preventDefault();
+        var target = (e.target.value).toLowerCase();
+        parameters.set(param, target);
+        window.location.href = window.location.pathname + "?" + parameters.toString();
     });
-}); };
+};
 queryParams(locationSelect, 'location');
 queryParams(senioritySelect, 'seniority');
 queryParams(categorySelect, 'category');
@@ -77,13 +74,12 @@ var filter = function () { return __awaiter(_this, void 0, void 0, function () {
                         locationLC = job.location.toLowerCase();
                         seniorityLC = job.seniority.toLowerCase();
                         categoryLC = job.category.toLowerCase();
-                        if (locat && !seniority && !category) {
-                            console.log('solo location');
+                        if (locat && !seniority || seniority === 'all' && !category || category === 'all') {
                             if (locationLC === locat) {
                                 cardCreator(job);
                             }
                         }
-                        else if (locat && seniority && !category) {
+                        else if (locat && seniority && !category || category === 'all') {
                             console.log('location y seniority');
                             if (locationLC === locat && seniorityLC === seniority) {
                                 cardCreator(job);
@@ -95,25 +91,25 @@ var filter = function () { return __awaiter(_this, void 0, void 0, function () {
                                 cardCreator(job);
                             }
                         }
-                        else if (!locat && seniority && !category) {
+                        else if (!locat || locat === 'all' && seniority && !category || category === 'all') {
                             console.log('solo seniority');
                             if (seniorityLC === seniority) {
                                 cardCreator(job);
                             }
                         }
-                        else if (!locat && seniority && category) {
+                        else if (!locat || locat === 'all' && seniority && category) {
                             console.log('seniority y category');
                             if (seniorityLC === seniority && categoryLC === category) {
                                 cardCreator(job);
                             }
                         }
-                        else if (locat && !seniority && category) {
+                        else if (locat && !seniority || seniority === 'all' && category) {
                             console.log('location y category');
                             if (locationLC === locat && categoryLC === category) {
                                 cardCreator(job);
                             }
                         }
-                        else if (!location && !seniority && category) {
+                        else if (!location || locat === 'all' && !seniority || seniority === 'all' && category) {
                             console.log('solo category');
                             if (categoryLC === category) {
                                 cardCreator(job);

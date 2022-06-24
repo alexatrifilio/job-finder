@@ -188,6 +188,7 @@ const addOptions = async (options: Tag [], append: HTMLElement) => {
 
         const opt = document.createElement('option');
         opt.appendChild(document.createTextNode(i.name));
+        // opt.setAttribute['value', i.slug]
         append.appendChild(opt);
     }
 }

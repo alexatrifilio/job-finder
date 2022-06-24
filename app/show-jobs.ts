@@ -14,13 +14,13 @@ addOptions(getJobs('category'), categorySelect);
 
 const parameters = new URLSearchParams(window.location.search);
 
-// ¿Cómo hacer para que se mantengan en el option?
+//¿Cómo hacer para que se mantengan en el option?
 
-const queryParams = async(select: HTMLSelectElement, param: string) => {
+const queryParams = (select: HTMLSelectElement, param: string) => {
     
-    select.addEventListener('submit', (e) => {
+    select.addEventListener('change', (e) => {
         e.preventDefault()
-        const target = (e.target.value).toLowerCase();
+        const target = (e.target.value).toLowerCase();       
         parameters.set(param, target);
         window.location.href = `${window.location.pathname}?${parameters.toString()}`;
     })
@@ -50,12 +50,11 @@ const filter = async () => {
             const categoryLC = job.category.toLowerCase()
 
 
-            if(locat && !seniority && !category){
-                console.log('solo location');
+            if(locat && !seniority || seniority === 'all' && !category || category === 'all'){
                 if (locationLC === locat){
                     cardCreator(job)
                 }
-            } else if (locat && seniority && !category){
+            } else if (locat && seniority && !category || category === 'all' ){
                 console.log('location y seniority');
                 if (locationLC === locat && seniorityLC === seniority){
                     cardCreator(job)
@@ -65,22 +64,22 @@ const filter = async () => {
                 if (locationLC === locat && seniorityLC === seniority && categoryLC === category){
                     cardCreator(job)
                 }
-            } else if (!locat && seniority && !category){
+            } else if (!locat || locat === 'all' && seniority && !category || category === 'all'){
                 console.log('solo seniority');
                 if (seniorityLC === seniority){
                     cardCreator(job)
                 }
-            } else if (!locat && seniority && category){
+            } else if (!locat || locat === 'all' && seniority && category){
                 console.log('seniority y category')
                 if (seniorityLC === seniority && categoryLC === category){
                     cardCreator(job)
                 }
-            } else if (locat && !seniority && category){
+            } else if (locat && !seniority || seniority === 'all' && category){
                 console.log('location y category')
                 if (locationLC === locat && categoryLC === category){
                     cardCreator(job)
                 }
-            } else if(!location && !seniority && category){
+            } else if(!location || locat === 'all'  && !seniority || seniority === 'all' && category){
                 console.log('solo category');
                 if (categoryLC === category){
                     cardCreator(job)

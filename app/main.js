@@ -188,6 +188,7 @@ var addOptions = function (options, append) { return __awaiter(_this, void 0, vo
                     i = elements_1[_i];
                     opt = document.createElement('option');
                     opt.appendChild(document.createTextNode(i.name));
+                    // opt.setAttribute['value', i.slug]
                     append.appendChild(opt);
                 }
                 return [2 /*return*/];
