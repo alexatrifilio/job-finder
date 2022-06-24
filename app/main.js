@@ -93,6 +93,28 @@ var cardCreator = function (job) {
     card.appendChild(btnsCont);
     cardContainer.appendChild(card);
 };
+//Multiple cards creator //
+var cardContainer = document.getElementById('card-container');
+var cardsCreator = function () { return __awaiter(_this, void 0, void 0, function () {
+    var jobs;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                showLoader();
+                cardContainer.innerHTML = '';
+                return [4 /*yield*/, getJobs('jobs')];
+            case 1:
+                jobs = _a.sent();
+                setTimeout(function () {
+                    jobs.forEach(function (element) {
+                        cardCreator(element);
+                    });
+                    hideLoader();
+                }, 1500);
+                return [2 /*return*/];
+        }
+    });
+}); };
 // Params //
 var params = new URLSearchParams(window.location.search);
 var id = params.get('id');
@@ -162,7 +184,6 @@ var addOptions = function (options, append) { return __awaiter(_this, void 0, vo
             case 0: return [4 /*yield*/, options];
             case 1:
                 elements = _a.sent();
-                console.log(options);
                 for (_i = 0, elements_1 = elements; _i < elements_1.length; _i++) {
                     i = elements_1[_i];
                     opt = document.createElement('option');

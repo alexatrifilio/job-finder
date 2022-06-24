@@ -69,6 +69,31 @@ const cardCreator = (job: Job) => {
 }
 
 
+//Multiple cards creator //
+
+const cardContainer: HTMLElement = document.getElementById('card-container') as HTMLDivElement;
+
+
+const cardsCreator = async () => {
+
+    showLoader()
+
+    cardContainer.innerHTML = '';
+
+    const jobs = await getJobs('jobs');
+
+    setTimeout(() => {
+
+        jobs.forEach((element) => {
+            cardCreator(element);
+        } );
+        hideLoader()
+
+    }, 1500);
+    
+    
+}
+
 // Params //
 
 const params = new URLSearchParams(window.location.search);
@@ -159,8 +184,6 @@ const addOptions = async (options: Tag [], append: HTMLElement) => {
 
     const elements = await options
     
-    console.log(options);
-    
     for (let i of elements){
 
         const opt = document.createElement('option');
@@ -168,5 +191,3 @@ const addOptions = async (options: Tag [], append: HTMLElement) => {
         append.appendChild(opt);
     }
 }
-
-

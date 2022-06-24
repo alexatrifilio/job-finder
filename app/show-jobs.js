@@ -1,3 +1,4 @@
+// add options to select element //
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,25 +36,96 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var cardContainer = document.getElementById('card-container');
-var cardsCreator = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs;
+var locationSelect = document.getElementById('select-location');
+addOptions(getJobs('country'), locationSelect);
+var senioritySelect = document.getElementById('select-seniority');
+addOptions(getJobs('seniority'), senioritySelect);
+var categorySelect = document.getElementById('select-category');
+addOptions(getJobs('category'), categorySelect);
+// Add query params to URL //
+var parameters = new URLSearchParams(window.location.search);
+// ¿Cómo hacer para que se mantengan en el option?
+var queryParams = function (select, param) { return __awaiter(_this, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        select.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var target = (e.target.value).toLowerCase();
+            parameters.set(param, target);
+            window.location.href = window.location.pathname + "?" + parameters.toString();
+        });
+        return [2 /*return*/];
+    });
+}); };
+queryParams(locationSelect, 'location');
+queryParams(senioritySelect, 'seniority');
+queryParams(categorySelect, 'category');
+// Filter //
+var locat = parameters.get('location');
+var seniority = parameters.get('seniority');
+var category = parameters.get('category');
+var filter = function () { return __awaiter(_this, void 0, void 0, function () {
+    var jobs, _i, jobs_1, job, locationLC, seniorityLC, categoryLC;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                showLoader();
-                cardContainer.innerHTML = '';
-                return [4 /*yield*/, getJobs('jobs')];
+            case 0: return [4 /*yield*/, getJobs('jobs')];
             case 1:
                 jobs = _a.sent();
-                setTimeout(function () {
-                    jobs.forEach(function (element) {
-                        cardCreator(element);
-                    });
-                    hideLoader();
-                }, 1500);
+                if (window.location.search.includes('?')) {
+                    cardContainer.innerHTML = '';
+                    for (_i = 0, jobs_1 = jobs; _i < jobs_1.length; _i++) {
+                        job = jobs_1[_i];
+                        locationLC = job.location.toLowerCase();
+                        seniorityLC = job.seniority.toLowerCase();
+                        categoryLC = job.category.toLowerCase();
+                        if (locat && !seniority && !category) {
+                            console.log('solo location');
+                            if (locationLC === locat) {
+                                cardCreator(job);
+                            }
+                        }
+                        else if (locat && seniority && !category) {
+                            console.log('location y seniority');
+                            if (locationLC === locat && seniorityLC === seniority) {
+                                cardCreator(job);
+                            }
+                        }
+                        else if (locat && seniority && category) {
+                            console.log('los tres');
+                            if (locationLC === locat && seniorityLC === seniority && categoryLC === category) {
+                                cardCreator(job);
+                            }
+                        }
+                        else if (!locat && seniority && !category) {
+                            console.log('solo seniority');
+                            if (seniorityLC === seniority) {
+                                cardCreator(job);
+                            }
+                        }
+                        else if (!locat && seniority && category) {
+                            console.log('seniority y category');
+                            if (seniorityLC === seniority && categoryLC === category) {
+                                cardCreator(job);
+                            }
+                        }
+                        else if (locat && !seniority && category) {
+                            console.log('location y category');
+                            if (locationLC === locat && categoryLC === category) {
+                                cardCreator(job);
+                            }
+                        }
+                        else if (!location && !seniority && category) {
+                            console.log('solo category');
+                            if (categoryLC === category) {
+                                cardCreator(job);
+                            }
+                        }
+                    }
+                }
+                else {
+                    cardsCreator();
+                }
                 return [2 /*return*/];
         }
     });
 }); };
-cardsCreator();
+filter();
