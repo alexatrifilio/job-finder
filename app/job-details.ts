@@ -1,9 +1,14 @@
 
 const showJob = async (id: string) => {
-    const job = await getJob(id);
+    
+    showLoader();
+    
+    const job: Job = await getJob(id, 'jobs');
 
-    cardCreator(job)
-    const thisCard = document.getElementById(`card-${id}`) as HTMLDivElement;
+    setTimeout(() => {
+        cardCreator(job);
+
+        const thisCard = document.getElementById(`card-${id}`) as HTMLDivElement;
     thisCard.classList.add('single-card', 'card-large');
 
     const fullDescription = document.getElementById('card-description') as HTMLParagraphElement;
@@ -19,15 +24,16 @@ const showJob = async (id: string) => {
 
     const btnDel = document.getElementById('btn-delete') as HTMLAnchorElement;
     btnDel.classList.add('btn', 'secondary-btn');
+        
+        hideLoader()
+    }, 1500);
+
+    
 }
 
-showLoader()
 
 
-setTimeout(() => {
-    showJob(id);
-    hideLoader()
-}, 5000);
+showJob(id);
 
 
-//loading(showJob(id));
+

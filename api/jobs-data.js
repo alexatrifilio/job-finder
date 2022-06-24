@@ -35,10 +35,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var postJob = function (data) { return __awaiter(_this, void 0, void 0, function () {
+var postJob = function (data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch('https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/jobs', {
+            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint, {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data)
@@ -49,11 +49,11 @@ var postJob = function (data) { return __awaiter(_this, void 0, void 0, function
         }
     });
 }); };
-var getJobs = function () { return __awaiter(_this, void 0, void 0, function () {
+var getJobs = function (endpoint) { return __awaiter(_this, void 0, void 0, function () {
     var get, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch('https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/jobs')];
+            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint)];
             case 1:
                 get = _a.sent();
                 return [4 /*yield*/, get.json()];
@@ -63,11 +63,11 @@ var getJobs = function () { return __awaiter(_this, void 0, void 0, function () 
         }
     });
 }); };
-var getJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
+var getJob = function (id, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     var get, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/jobs/".concat(id))];
+            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint + "/" + id)];
             case 1:
                 get = _a.sent();
                 return [4 /*yield*/, get.json()];
@@ -77,10 +77,10 @@ var getJob = function (id) { return __awaiter(_this, void 0, void 0, function ()
         }
     });
 }); };
-var deleteJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
+var deleteJob = function (id, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/jobs/".concat(id), {
+            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint + "/" + id, {
                     method: 'DELETE',
                     headers: { "Content-Type": "application/json" }
                 })];
@@ -90,10 +90,10 @@ var deleteJob = function (id) { return __awaiter(_this, void 0, void 0, function
         }
     });
 }); };
-var patchJob = function (id, data) { return __awaiter(_this, void 0, void 0, function () {
+var patchJob = function (id, data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/jobs/".concat(id), {
+            case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint + "/" + id, {
                     method: 'PUT',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data)

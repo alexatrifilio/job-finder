@@ -1,13 +1,5 @@
 // add new job funtion
 
-let job={
-    name: "FrontEnd Developer",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus turpis in eu mi bibendum neque.",
-    location: "United States",
-    category: "Development",
-    seniority: "Junior",
-}
-
 createInputField('form-add-job', 'text', 'name', 'Job title', 'Title of the job', 'required');
 createTextAreaField('form-add-job', 'description', 'Description', 'Job description');
 createInputField('form-add-job', 'text', 'location', '', 'Location', 'required');
@@ -16,21 +8,21 @@ createInputField('form-add-job', 'text', 'category', '', 'Category', 'required')
 
 const addJob = document.getElementById('form-add-job') as HTMLFormElement;
 
-// add back button
-const btnBack = document.createElement('a');
-btnBack.classList.add('btn','primary-btn');
-btnBack.setAttribute('href', './index.html');
-btnBack.setAttribute('id', 'btn-back');
-btnBack.appendChild(document.createTextNode('Back'));
-addJob.appendChild(btnBack);
-
-
 // add submit button
 const submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
 submitButton.setAttribute('class', 'btn btn-primary');
 submitButton.appendChild(document.createTextNode('Add'));
 addJob.appendChild(submitButton);
+
+// add back button
+
+const btnBack = document.createElement('a');
+btnBack.classList.add('btn','primary-btn');
+btnBack.setAttribute('href', './index.html');
+btnBack.setAttribute('id', 'btn-back');
+btnBack.appendChild(document.createTextNode('Back'));
+addJob.appendChild(btnBack);
 
 // add event listener to submit button
 submitButton.addEventListener('click', (e) => {
@@ -42,7 +34,7 @@ submitButton.addEventListener('click', (e) => {
             formDataJson[key] = value;
         }
         );
-        postJob(formDataJson);
+        postJob(formDataJson, 'jobs');
 
         
         alert('Job added successfully');

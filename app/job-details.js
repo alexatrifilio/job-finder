@@ -36,32 +36,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var showJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
-    var job, thisCard, fullDescription, unseeBtn, btnEdit, btnDel;
+    var job;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, getJob(id)];
+            case 0:
+                showLoader();
+                return [4 /*yield*/, getJob(id, 'jobs')];
             case 1:
                 job = _a.sent();
-                cardCreator(job);
-                thisCard = document.getElementById("card-" + id);
-                thisCard.classList.add('single-card', 'card-large');
-                fullDescription = document.getElementById('card-description');
-                fullDescription.classList.remove('min-description');
-                unseeBtn = document.getElementById('btn-details');
-                unseeBtn.classList.remove('btn', 'primary-btn');
-                unseeBtn.classList.add('hide');
-                btnEdit = document.getElementById('btn-edit');
-                btnEdit.classList.add('btn', 'primary-btn');
-                btnEdit.setAttribute('href', "./edit-job.html?id=" + id);
-                btnDel = document.getElementById('btn-delete');
-                btnDel.classList.add('btn', 'secondary-btn');
+                setTimeout(function () {
+                    cardCreator(job);
+                    var thisCard = document.getElementById("card-" + id);
+                    thisCard.classList.add('single-card', 'card-large');
+                    var fullDescription = document.getElementById('card-description');
+                    fullDescription.classList.remove('min-description');
+                    var unseeBtn = document.getElementById('btn-details');
+                    unseeBtn.classList.remove('btn', 'primary-btn');
+                    unseeBtn.classList.add('hide');
+                    var btnEdit = document.getElementById('btn-edit');
+                    btnEdit.classList.add('btn', 'primary-btn');
+                    btnEdit.setAttribute('href', "./edit-job.html?id=" + id);
+                    var btnDel = document.getElementById('btn-delete');
+                    btnDel.classList.add('btn', 'secondary-btn');
+                    hideLoader();
+                }, 1500);
                 return [2 /*return*/];
         }
     });
 }); };
-showLoader();
-setTimeout(function () {
-    showJob(id);
-    hideLoader();
-}, 5000);
-//loading(showJob(id));
+showJob(id);
