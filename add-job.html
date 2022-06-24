@@ -19,11 +19,32 @@
             </ul>
         </nav>
     </header>
-    <form id="form-add-job"></form>
+    <form id="form-add-job">
+        <div>
+            <label for="job-title"></label>
+            <input type="text" name="job-title" id="job-title">
+        </div>
+        <div>
+            <label for="job-description"></label>
+            <textarea name="job-description" id="job-description" cols="30" rows="10"></textarea>
+        </div>
+        <select name="select-location" id="select-location">
+            <option value="location" disabled selected hidden> Location </option>
+        </select>
+        <select name="select-seniority" id="select-seniority">
+            <option value="seniority" disabled selected hidden> Seniority </option>
+        </select>
+        <select name="select-category" id="select-category">
+            <option value="category" disabled selected hidden> Category </option>
+        </select>
+        <button type="submit" id="btn-add" class="btn primary-btn"> Add </button>
+        <a href="./index.html" id="btn-back" class="btn secondary-btn"> Back </a>
+    </form>
 
     <script src="./api/jobs-data.js"></script>
     <script src="./app/types.js"></script>
     <script src="./app/main.js"></script>
+    <script src="./app/filters.js"></script>
     <script src="./app/add-new-job.js"></script>
 </body>
 </html>
