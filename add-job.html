@@ -19,27 +19,34 @@
             </ul>
         </nav>
     </header>
-    <form id="form-add-job">
-        <div>
-            <label for="job-title"></label>
-            <input type="text" name="job-title" id="job-title">
+    <main>
+        <div class="container">
+            <form id="form-add-job" class="form-add">
+                <div class="input-container">
+                    <label for="job-title"> Job title </label>
+                    <input type="text" name="job-title" id="job-title" placeholder="Title of the job" class="form-item add">
+                </div>
+                <div class="input-container">
+                    <label for="job-description"> Job description </label>
+                    <textarea name="job-description" id="job-description" cols="30" rows="10" placeholder="Job description" class="form-item text-area"></textarea>
+                </div>
+                <div id="select-container" class="input-container">
+                    <select name="select-location" id="select-location" class="form-item select">
+                        <option value="location" disabled selected hidden class="option"> Location </option>
+                    </select>
+                    <select name="select-seniority" id="select-seniority" class="form-item select">
+                        <option value="seniority" disabled selected hidden> Seniority </option>
+                    </select>
+                    <select name="select-category" id="select-category" class="form-item select">
+                        <option value="category" disabled selected hidden> Category </option>
+                    </select>
+                </div>
+                <button type="submit" id="btn-add" class="btn primary-btn"> Add </button>
+                <a href="./index.html" id="btn-back" class="btn secondary-btn"> Back </a>
+            </form>
         </div>
-        <div>
-            <label for="job-description"></label>
-            <textarea name="job-description" id="job-description" cols="30" rows="10"></textarea>
-        </div>
-        <select name="select-location" id="select-location">
-            <option value="location"> Location </option>
-        </select>
-        <select name="select-seniority" id="select-seniority">
-            <option value="seniority"> Seniority </option>
-        </select>
-        <select name="select-category" id="select-category">
-            <option value="category"> Category </option>
-        </select>
-        <button type="submit" id="btn-add" class="btn primary-btn"> Add </button>
-        <a href="./index.html" id="btn-back" class="btn secondary-btn"> Back </a>
-    </form>
+    </main>
+    
 
     <script src="./api/jobs-data.js"></script>
     <script src="./app/types.js"></script>

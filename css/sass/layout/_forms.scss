@@ -17,4 +17,26 @@
     &:hover{
         box-shadow: -3px 4px 5px 0px rgba(255, 137, 40, 0.425);
     }
+    &.text-area{
+        height: 150px;
+        width: 400px;
+    }
+    &add{
+        width: 400px;
+    }
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    .select{
+        margin-bottom: 10px;
+        width:400px
+    }
+}
+
+.form-add{
+    margin: auto;
+    margin-top: 50px;
 }
