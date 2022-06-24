@@ -9,7 +9,7 @@ const cardsCreator = async () => {
 
     cardContainer.innerHTML = '';
 
-    const jobs = await getJobs('jobs');
+    const jobs = await getElements('jobs');
 
     setTimeout(() => {
 

@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var postJob = function (data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
+var postElement = function (data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint, {
@@ -49,7 +49,7 @@ var postJob = function (data, endpoint) { return __awaiter(_this, void 0, void 0
         }
     });
 }); };
-var getJobs = function (endpoint) { return __awaiter(_this, void 0, void 0, function () {
+var getElements = function (endpoint) { return __awaiter(_this, void 0, void 0, function () {
     var get, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -63,7 +63,7 @@ var getJobs = function (endpoint) { return __awaiter(_this, void 0, void 0, func
         }
     });
 }); };
-var getJob = function (id, endpoint) { return __awaiter(_this, void 0, void 0, function () {
+var getElement = function (id, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     var get, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -77,7 +77,7 @@ var getJob = function (id, endpoint) { return __awaiter(_this, void 0, void 0, f
         }
     });
 }); };
-var deleteJob = function (id, endpoint) { return __awaiter(_this, void 0, void 0, function () {
+var deleteElement = function (id, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint + "/" + id, {
@@ -90,7 +90,7 @@ var deleteJob = function (id, endpoint) { return __awaiter(_this, void 0, void 0
         }
     });
 }); };
-var patchJob = function (id, data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
+var patchElement = function (id, data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetch("https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/" + endpoint + "/" + id, {

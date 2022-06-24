@@ -27,7 +27,7 @@ submitButton.addEventListener('click', function (e) {
     formData.forEach(function (value, key) {
         formDataJson[key] = value;
     });
-    postJob(formDataJson, 'jobs');
+    postElement(formDataJson, 'jobs');
     alert('Job added successfully');
     window.location.href = './index.html';
 });

@@ -3,7 +3,7 @@ const showJob = async (id: string) => {
     
     showLoader();
     
-    const job: Job = await getJob(id, 'jobs');
+    const job: Job = await getElement(id, 'jobs');
 
     setTimeout(() => {
         cardCreator(job);

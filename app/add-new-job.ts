@@ -34,7 +34,7 @@ submitButton.addEventListener('click', (e) => {
             formDataJson[key] = value;
         }
         );
-        postJob(formDataJson, 'jobs');
+        postElement(formDataJson, 'jobs');
 
         
         alert('Job added successfully');
