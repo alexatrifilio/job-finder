@@ -8,6 +8,7 @@ const postJob = async (data: object, endpoint: string): Promise<void> => {
 }
 
 const getJobs = async (endpoint:string): Promise<Array<Object>>=> {
+
     const get = await fetch(`https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1/${endpoint}`);
     const data = await get.json();
     return data

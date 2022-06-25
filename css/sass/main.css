@@ -43,7 +43,7 @@
 }
 .filter-form {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 50px 0px;
 }
 
@@ -64,6 +64,8 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
 }
 .card-container.single-card {
   align-items: center;
@@ -117,7 +119,7 @@
   font-size: 15px;
 }
 .card .min-description {
-  max-height: 30%;
+  height: 30%;
   overflow: hidden;
 }
 .card .tag-container .tag {

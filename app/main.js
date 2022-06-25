@@ -177,18 +177,21 @@ function createTextAreaField(formId, name, fieldTitle, placeholder) {
     form.appendChild(textAreaContainer);
 }
 // Adding options to select elements //
-var addOptions = function (options, append) { return __awaiter(_this, void 0, void 0, function () {
-    var elements, _i, elements_1, i, opt;
+var addOptions = function (options, append, selected) { return __awaiter(_this, void 0, void 0, function () {
+    var elements, _i, elements_1, element, opt;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, options];
             case 1:
                 elements = _a.sent();
                 for (_i = 0, elements_1 = elements; _i < elements_1.length; _i++) {
-                    i = elements_1[_i];
+                    element = elements_1[_i];
                     opt = document.createElement('option');
-                    opt.appendChild(document.createTextNode(i.name));
-                    // opt.setAttribute['value', i.slug]
+                    opt.appendChild(document.createTextNode(element.name));
+                    opt.setAttribute('value', element.slug);
+                    if (selected === element.slug) {
+                        opt.setAttribute('selected', 'selected');
+                    }
                     append.appendChild(opt);
                 }
                 return [2 /*return*/];

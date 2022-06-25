@@ -1,4 +1,3 @@
-// add options to select element //
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,17 +35,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var locationSelect = document.getElementById('select-location');
-addOptions(getJobs('country'), locationSelect);
-var senioritySelect = document.getElementById('select-seniority');
-addOptions(getJobs('seniority'), senioritySelect);
-var categorySelect = document.getElementById('select-category');
-addOptions(getJobs('category'), categorySelect);
-// Add query params to URL //
+// Get query params from URL //
 var parameters = new URLSearchParams(window.location.search);
-//¿Cómo hacer para que se mantengan en el option?
+var locat = parameters.get('location');
+var seniority = parameters.get('seniority');
+var category = parameters.get('category');
+// add options to select element //
+var locationSelect = document.getElementById('select-location');
+addOptions(getJobs('country'), locationSelect, locat);
+var senioritySelect = document.getElementById('select-seniority');
+addOptions(getJobs('seniority'), senioritySelect, seniority);
+var categorySelect = document.getElementById('select-category');
+addOptions(getJobs('category'), categorySelect, category);
+// Add query params to URL //
 var queryParams = function (select, param) {
-    select.addEventListener('change', function (e) {
+    select.addEventListener('submit', function (e) {
         e.preventDefault();
         var target = (e.target.value).toLowerCase();
         parameters.set(param, target);
@@ -56,70 +59,23 @@ var queryParams = function (select, param) {
 queryParams(locationSelect, 'location');
 queryParams(senioritySelect, 'seniority');
 queryParams(categorySelect, 'category');
+var allLocations = document.getElementById('all-locations');
+var allSeniorities = document.getElementById('all-seniorities');
+var allCategories = document.getElementById('all-categories');
 // Filter //
-var locat = parameters.get('location');
-var seniority = parameters.get('seniority');
-var category = parameters.get('category');
 var filter = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs, _i, jobs_1, job, locationLC, seniorityLC, categoryLC;
+    var jobs, temporalResponse, tempoarlResponse;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, getJobs('jobs')];
             case 1:
                 jobs = _a.sent();
-                if (window.location.search.includes('?')) {
-                    cardContainer.innerHTML = '';
-                    for (_i = 0, jobs_1 = jobs; _i < jobs_1.length; _i++) {
-                        job = jobs_1[_i];
-                        locationLC = job.location.toLowerCase();
-                        seniorityLC = job.seniority.toLowerCase();
-                        categoryLC = job.category.toLowerCase();
-                        if (locat && !seniority || seniority === 'all' && !category || category === 'all') {
-                            if (locationLC === locat) {
-                                cardCreator(job);
-                            }
-                        }
-                        else if (locat && seniority && !category || category === 'all') {
-                            console.log('location y seniority');
-                            if (locationLC === locat && seniorityLC === seniority) {
-                                cardCreator(job);
-                            }
-                        }
-                        else if (locat && seniority && category) {
-                            console.log('los tres');
-                            if (locationLC === locat && seniorityLC === seniority && categoryLC === category) {
-                                cardCreator(job);
-                            }
-                        }
-                        else if (!locat || locat === 'all' && seniority && !category || category === 'all') {
-                            console.log('solo seniority');
-                            if (seniorityLC === seniority) {
-                                cardCreator(job);
-                            }
-                        }
-                        else if (!locat || locat === 'all' && seniority && category) {
-                            console.log('seniority y category');
-                            if (seniorityLC === seniority && categoryLC === category) {
-                                cardCreator(job);
-                            }
-                        }
-                        else if (locat && !seniority || seniority === 'all' && category) {
-                            console.log('location y category');
-                            if (locationLC === locat && categoryLC === category) {
-                                cardCreator(job);
-                            }
-                        }
-                        else if (!location || locat === 'all' && !seniority || seniority === 'all' && category) {
-                            console.log('solo category');
-                            if (categoryLC === category) {
-                                cardCreator(job);
-                            }
-                        }
-                    }
-                }
-                else {
-                    cardsCreator();
-                }
+                temporalResponse = jobs.filter(function (job) {
+                    if (parameters.get('location') === 'all')
+                        return true;
+                    return job.location === parameters.get('location');
+                });
+                tempoarlResponse = temporalResponse.filter(function (job) { return job.seniority === parameters.get('seniority'); });
                 return [2 /*return*/];
         }
     });
