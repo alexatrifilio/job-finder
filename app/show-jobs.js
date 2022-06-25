@@ -64,18 +64,31 @@ var allSeniorities = document.getElementById('all-seniorities');
 var allCategories = document.getElementById('all-categories');
 // Filter //
 var filter = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs, temporalResponse, tempoarlResponse;
+    var jobs, jobsByLocation, jobsBySeniority, jobsByCategory;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, getJobs('jobs')];
             case 1:
                 jobs = _a.sent();
-                temporalResponse = jobs.filter(function (job) {
+                jobsByLocation = jobs.filter(function (job) {
                     if (parameters.get('location') === 'all')
                         return true;
                     return job.location === parameters.get('location');
                 });
-                tempoarlResponse = temporalResponse.filter(function (job) { return job.seniority === parameters.get('seniority'); });
+                jobsBySeniority = jobsByLocation.filter(function (job) {
+                    if (parameters.get('seniority') === 'all')
+                        return true;
+                    return job.seniority === parameters.get('seniority');
+                });
+                jobsByCategory = jobsBySeniority.filter(function (job) {
+                    console.log('by cat');
+                    if (parameters.get('category') === 'all')
+                        return true;
+                    return job.category === parameters.get('category');
+                });
+                jobsByCategory.forEach(function (job) {
+                    cardCreator(job);
+                });
                 return [2 /*return*/];
         }
     });

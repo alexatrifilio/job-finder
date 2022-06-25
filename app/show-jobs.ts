@@ -47,15 +47,32 @@ const allCategories:HTMLElement = document.getElementById('all-categories') as H
 const filter = async () => {
 
     const jobs = await getJobs('jobs');
-
-    const temporalResponse = jobs.filter(job => {
-
+    
+    
+    
+    const jobsByLocation = jobs.filter(job => {
+        
         if(parameters.get('location') === 'all') return true;
+
 
         return job.location === parameters.get('location')
     })
 
-    const tempoarlResponse = temporalResponse.filter(job => job.seniority === parameters.get('seniority'))
+    const jobsBySeniority = jobsByLocation.filter(job => {
+        if(parameters.get('seniority') === 'all') return true;
+        return job.seniority === parameters.get('seniority')
+    })
+
+    const jobsByCategory = jobsBySeniority.filter( job =>{
+        console.log('by cat');
+        if(parameters.get('category') === 'all') return true;
+        return job.category === parameters.get('category')
+        
+    })
+
+    jobsByCategory.forEach(job => {
+        cardCreator(job)
+    })
 
     // if(window.location.search.includes('?')){
     //     cardContainer.innerHTML = '';
@@ -123,7 +140,7 @@ const filter = async () => {
     //     }
     // } else{
         
-    //    cardsCreator()
+       //cardsCreator()
     // }
 }
 
