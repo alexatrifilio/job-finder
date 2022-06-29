@@ -24,11 +24,19 @@ const showJob = async (id: string) => {
 
         const btnDel = document.getElementById('btn-delete') as HTMLAnchorElement;
         btnDel.classList.add('btn', 'secondary-btn');
+
+        btnDel.addEventListener('click', async () => {
+            if (confirm('Are you sure you want to delete this job?')) {
+                await deleteElement(id, 'jobs');
+                window.location.href = 'index.html';
+            }
+            
+        }
+        );
         
         hideLoader()
     }, 1500);
 
-    
 }
 
 

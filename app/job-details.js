@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 var showJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
     var job;
+    var _this = this;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -46,7 +47,7 @@ var showJob = function (id) { return __awaiter(_this, void 0, void 0, function (
                 job = _a.sent();
                 setTimeout(function () {
                     cardCreator(job);
-                    var thisCard = document.getElementById("card-" + id);
+                    var thisCard = document.getElementById("card-".concat(id));
                     thisCard.classList.add('single-card', 'card-large');
                     var fullDescription = document.getElementById('card-description');
                     fullDescription.classList.remove('min-description');
@@ -55,9 +56,23 @@ var showJob = function (id) { return __awaiter(_this, void 0, void 0, function (
                     unseeBtn.classList.add('hide');
                     var btnEdit = document.getElementById('btn-edit');
                     btnEdit.classList.add('btn', 'primary-btn');
-                    btnEdit.setAttribute('href', "./edit-job.html?id=" + id);
+                    btnEdit.setAttribute('href', "./edit-job.html?id=".concat(id));
                     var btnDel = document.getElementById('btn-delete');
                     btnDel.classList.add('btn', 'secondary-btn');
+                    btnDel.addEventListener('click', function () { return __awaiter(_this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    if (!confirm('Are you sure you want to delete this job?')) return [3 /*break*/, 2];
+                                    return [4 /*yield*/, deleteElement(id, 'jobs')];
+                                case 1:
+                                    _a.sent();
+                                    window.location.href = 'index.html';
+                                    _a.label = 2;
+                                case 2: return [2 /*return*/];
+                            }
+                        });
+                    }); });
                     hideLoader();
                 }, 1500);
                 return [2 /*return*/];
