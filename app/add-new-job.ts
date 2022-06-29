@@ -1,29 +1,10 @@
-// let createCountryList = async (): Promise<object> => {
-//     return await (await getElements('country')).map(country => country.name);
-// }
+const formAddJob = document.getElementById('form-add-job') as HTMLFormElement;
 
-// let createSeniorityList = async (): Promise<object> => {
-//     return await getElements('seniority');
-// }
+addSelectOptions('select-location', createList('country'));
+addSelectOptions('select-seniority', createList('seniority'));
+addSelectOptions('select-category', createList('category'));
 
-// let createCategoryList = async (): Promise<object> => {
-//     return await getElements('category');
-// }
-
-
-// console.log(createCountryList());
-// console.log(createSeniorityList());
-// console.log(createCategoryList());
-
-// add new job funtion
-
-// createInputField('form-add-job', 'text', 'name', 'Job title', 'Title of the job', 'required');
-// createTextAreaField('form-add-job', 'description', 'Description', 'Job description');
-// createSelectField('form-add-job', 'location', 'Location', ["Argentina", "Australia", "Brazil", "Colombia", "Czechia", "Denmark", "Finland", "France"]);
-// createSelectField('form-add-job', 'seniority', 'Seniority', ["Entry Level", "Junior", "Senior", "Lead", "Manager"]);
-// createSelectField('form-add-job', 'category', 'Category', ["Accounting", "Administration", "Advertising", "Architecture", "Art", "Automotive", "Banking"]);
-
-const addJob = document.getElementById('form-add-job') as HTMLFormElement;
+//fillOptions();
 
 // add back button
 const btnBack = document.createElement('a');
@@ -31,14 +12,14 @@ btnBack.classList.add('btn','primary-btn');
 btnBack.setAttribute('href', './index.html');
 btnBack.setAttribute('id', 'btn-back');
 btnBack.appendChild(document.createTextNode('Back'));
-addJob.appendChild(btnBack);
+formAddJob.appendChild(btnBack);
 
 // add submit button
 const submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
 submitButton.setAttribute('class', 'btn btn-primary');
 submitButton.appendChild(document.createTextNode('Add'));
-addJob.appendChild(submitButton);
+formAddJob.appendChild(submitButton);
 
 // add event listener to submit button
 submitButton.addEventListener('click', (e) => {

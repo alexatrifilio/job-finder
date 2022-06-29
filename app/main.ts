@@ -153,6 +153,16 @@ function createTextAreaField(
     form.appendChild(textAreaContainer)
 }
 
+const createList = async(endpoint): Promise<string[]> => {
+    const list=[]
+    const data = await getElements(endpoint);
+    data.forEach(element => {
+        list.push(element.name);
+    });
+    return list;
+}
+
+
 // Adding options to select elements //
 
 const addOptions = async (options: Tag [], append: HTMLElement) => {
@@ -163,10 +173,22 @@ const addOptions = async (options: Tag [], append: HTMLElement) => {
     
     for (let i of elements){
 
-        const opt = document.createElement('option');
-        opt.appendChild(document.createTextNode(i.name));
-        append.appendChild(opt);
+        const options = document.createElement('option');
+        options.appendChild(document.createTextNode(i.name));
+        append.appendChild(options);
     }
 }
 
+const addSelectOptions = async (id: string, options: Promise<string[]>) => {
+    
+    const select: HTMLSelectElement = document.getElementById(id) as HTMLSelectElement;
+    const elements = await options;
+    
+    for (let i in elements){
+        const option = document.createElement('option');
+        option.appendChild(document.createTextNode(elements[i]));
+        select.appendChild(option);
+    }
 
+
+}

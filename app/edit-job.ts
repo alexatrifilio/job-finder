@@ -1,10 +1,9 @@
-// add new job funtion
 
-
-
-//const cardContainer: HTMLElement = document.getElementById('card-container') as HTMLDivElement;
 const editJobForm: HTMLElement = document.getElementById('form-edit-job') as HTMLFormElement;
-//cardContainer.appendChild(editJobForm);
+
+addSelectOptions('select-location', createList('country'));
+addSelectOptions('select-seniority', createList('seniority'));
+addSelectOptions('select-category', createList('category'));
 
 // fill form with job data from api
 

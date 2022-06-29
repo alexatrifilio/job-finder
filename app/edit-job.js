@@ -1,4 +1,3 @@
-// add new job funtion
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,9 +35,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-//const cardContainer: HTMLElement = document.getElementById('card-container') as HTMLDivElement;
 var editJobForm = document.getElementById('form-edit-job');
-//cardContainer.appendChild(editJobForm);
+addSelectOptions('select-location', createList('country'));
+addSelectOptions('select-seniority', createList('seniority'));
+addSelectOptions('select-category', createList('category'));
 // fill form with job data from api
 var populateForm = function (job) {
     document.getElementById('input-name').value = job['name'];
