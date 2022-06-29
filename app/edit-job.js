@@ -43,24 +43,17 @@ var editJobForm = document.getElementById('form-edit-job');
 var populateForm = function (job) {
     document.getElementById('input-name').value = job['name'];
     document.getElementById('textarea-description').value = job['description'];
-    document.getElementById('input-location').value = job['location'];
-    document.getElementById('input-seniority').value = job['seniority'];
-    document.getElementById('input-category').value = job['category'];
+    document.getElementById('select-location').value = job['location'];
+    document.getElementById('select-seniority').value = job['seniority'];
+    document.getElementById('select-category').value = job['category'];
 };
 var showForm = function () { return __awaiter(_this, void 0, void 0, function () {
     var job, btnBack, submitButton;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                showLoader();
-                return [4 /*yield*/, getElement(id, 'jobs')];
+            case 0: return [4 /*yield*/, getElement(id, 'jobs')];
             case 1:
                 job = _a.sent();
-                createInputField('form-edit-job', 'text', 'name', 'Job title', 'Title of the job', 'required');
-                createTextAreaField('form-edit-job', 'description', 'Description', 'Job description');
-                createInputField('form-edit-job', 'text', 'location', '', 'Location', 'required');
-                createInputField('form-edit-job', 'text', 'seniority', '', 'Seniority', 'required');
-                createInputField('form-edit-job', 'text', 'category', '', 'Category', 'required');
                 populateForm(job);
                 btnBack = document.createElement('a');
                 btnBack.classList.add('btn', 'primary-btn');
@@ -86,7 +79,6 @@ var showForm = function () { return __awaiter(_this, void 0, void 0, function ()
                     alert('Job edited successfully');
                     window.location.href = './index.html';
                 });
-                hideLoader();
                 return [2 /*return*/];
         }
     });

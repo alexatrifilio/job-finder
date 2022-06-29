@@ -11,21 +11,14 @@ const editJobForm: HTMLElement = document.getElementById('form-edit-job') as HTM
 const populateForm = (job: Object) => {
     document.getElementById('input-name').value = job['name'];
     document.getElementById('textarea-description').value = job['description'];
-    document.getElementById('input-location').value = job['location'];
-    document.getElementById('input-seniority').value = job['seniority'];
-    document.getElementById('input-category').value = job['category'];
+    document.getElementById('select-location').value = job['location'];
+    document.getElementById('select-seniority').value = job['seniority'];
+    document.getElementById('select-category').value = job['category'];
 }
 
 const showForm = async () => {
 
-    showLoader();
     const job = await getElement(id, 'jobs');
-
-    createInputField('form-edit-job', 'text', 'name', 'Job title', 'Title of the job', 'required');
-    createTextAreaField('form-edit-job', 'description', 'Description', 'Job description');
-    createInputField('form-edit-job', 'text', 'location', '', 'Location', 'required');
-    createInputField('form-edit-job', 'text', 'seniority', '', 'Seniority', 'required');
-    createInputField('form-edit-job', 'text', 'category', '', 'Category', 'required');
 
     populateForm(job);
     
@@ -62,7 +55,6 @@ const showForm = async () => {
             
         }
     );
-    hideLoader()
         
 }
 
