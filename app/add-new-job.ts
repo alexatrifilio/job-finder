@@ -1,28 +1,25 @@
-// add new job funtion
+const formAddJob = document.getElementById('form-add-job') as HTMLFormElement;
 
-createInputField('form-add-job', 'text', 'name', 'Job title', 'Title of the job', 'required');
-createTextAreaField('form-add-job', 'description', 'Description', 'Job description');
-createInputField('form-add-job', 'text', 'location', '', 'Location', 'required');
-createInputField('form-add-job', 'text', 'seniority', '', 'Seniority', 'required');
-createInputField('form-add-job', 'text', 'category', '', 'Category', 'required');
+addSelectOptions('select-location', createList('country'));
+addSelectOptions('select-seniority', createList('seniority'));
+addSelectOptions('select-category', createList('category'));
 
-const addJob = document.getElementById('form-add-job') as HTMLFormElement;
+//fillOptions();
+
+// add back button
+const btnBack = document.createElement('a');
+btnBack.classList.add('btn','primary-btn');
+btnBack.setAttribute('href', './index.html');
+btnBack.setAttribute('id', 'btn-back');
+btnBack.appendChild(document.createTextNode('Back'));
+formAddJob.appendChild(btnBack);
 
 // add submit button
 const submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
 submitButton.setAttribute('class', 'btn btn-primary');
 submitButton.appendChild(document.createTextNode('Add'));
-addJob.appendChild(submitButton);
-
-// add back button
-
-const btnBack = document.createElement('a');
-btnBack.classList.add('btn','primary-btn');
-btnBack.setAttribute('href', './index.html');
-btnBack.setAttribute('id', 'btn-back');
-btnBack.appendChild(document.createTextNode('Back'));
-addJob.appendChild(btnBack);
+formAddJob.appendChild(submitButton);
 
 // add event listener to submit button
 submitButton.addEventListener('click', (e) => {

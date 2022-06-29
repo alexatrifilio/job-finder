@@ -5,13 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers</title>
+    <link rel="stylesheet" href="./css/sass/main.css">
 </head>
 <body>
+    <header class="top">
+        <div>
+            <h1 class="site-name"> Careers </h1>
+        </div>
+        <nav id="primary-nav" class="primary-nav">
+            <ul class="nav-list">
+                <li class="list-item"><a href="./index.html" class="nav-link"> Home </a></li>
+                <li class="list-item"><a href="./add-job.html" class="nav-link"> Create Job </a></li>
+            </ul>
+        </nav>
+    </header>
+    <form id="form-edit-job">
+        <div class="d-flex flex-column mb-3"><label for="Job title" class="mb-1">Job title</label><input type="text"
+                name="name" placeholder="Title of the job" required="required" id="input-name"></div>
+        <div class="d-flex flex-column mb-3"><label for="Description" class="mb-1">Description</label><textarea
+                name="description" placeholder="Job description" id="textarea-description"></textarea></div>
+        <div class="d-flex flex-column mb-3"><label for="Location" class="mb-1">Location</label><select name="location"
+                id="select-location">
+                <option>Seleccione una opción</option>
+            </select></div>
+        <div class="d-flex flex-column mb-3"><label for="Seniority" class="mb-1">Seniority</label><select name="seniority"
+                id="select-seniority">
+                <option>Seleccione una opción</option>
+            </select></div>
+        <div class="d-flex flex-column mb-3"><label for="Category" class="mb-1">Category</label><select name="category"
+                id="select-category">
+                <option>Seleccione una opción</option>
+            </select></div>
+    </form>
     
 
-
+    <footer class="footer"> Developed by Vanessa Neira and Alejandra Trifilio</footer>
     <script src="./api/jobs-data.js"></script>
     <script src="./app/types.js"></script>
     <script src="./app/main.js"></script>
+    <script src="./app/edit-job.js"></script>  
+    
 </body>
 </html>

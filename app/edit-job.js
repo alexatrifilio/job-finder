@@ -35,48 +35,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var showJob = function (id) { return __awaiter(_this, void 0, void 0, function () {
-    var job;
-    var _this = this;
+var editJobForm = document.getElementById('form-edit-job');
+addSelectOptions('select-location', createList('country'));
+addSelectOptions('select-seniority', createList('seniority'));
+addSelectOptions('select-category', createList('category'));
+// fill form with job data from api
+var populateForm = function (job) {
+    document.getElementById('input-name').value = job['name'];
+    document.getElementById('textarea-description').value = job['description'];
+    document.getElementById('select-location').value = job['location'];
+    document.getElementById('select-seniority').value = job['seniority'];
+    document.getElementById('select-category').value = job['category'];
+};
+var showForm = function () { return __awaiter(_this, void 0, void 0, function () {
+    var job, btnBack, submitButton;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                showLoader();
-                return [4 /*yield*/, getElement(id, 'jobs')];
+            case 0: return [4 /*yield*/, getElement(id, 'jobs')];
             case 1:
                 job = _a.sent();
-                setTimeout(function () {
-                    cardCreator(job);
-                    var thisCard = document.getElementById("card-".concat(id));
-                    thisCard.classList.add('single-card', 'card-large');
-                    var fullDescription = document.getElementById('card-description');
-                    fullDescription.classList.remove('min-description');
-                    var unseeBtn = document.getElementById('btn-details');
-                    unseeBtn.classList.remove('btn', 'primary-btn');
-                    unseeBtn.classList.add('hide');
-                    var btnEdit = document.getElementById('btn-edit');
-                    btnEdit.classList.add('btn', 'primary-btn');
-                    btnEdit.setAttribute('href', "./edit-job.html?id=".concat(id));
-                    var btnDel = document.getElementById('btn-delete');
-                    btnDel.classList.add('btn', 'secondary-btn');
-                    btnDel.addEventListener('click', function () { return __awaiter(_this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    if (!confirm('Are you sure you want to delete this job?')) return [3 /*break*/, 2];
-                                    return [4 /*yield*/, deleteElement(id, 'jobs')];
-                                case 1:
-                                    _a.sent();
-                                    window.location.href = 'index.html';
-                                    _a.label = 2;
-                                case 2: return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                    hideLoader();
-                }, 1500);
+                populateForm(job);
+                btnBack = document.createElement('a');
+                btnBack.classList.add('btn', 'primary-btn');
+                btnBack.setAttribute('href', './index.html');
+                btnBack.setAttribute('id', 'btn-back');
+                btnBack.appendChild(document.createTextNode('Back'));
+                editJobForm.appendChild(btnBack);
+                submitButton = document.createElement('button');
+                submitButton.setAttribute('type', 'submit');
+                submitButton.setAttribute('class', 'btn btn-primary');
+                submitButton.appendChild(document.createTextNode('Save'));
+                editJobForm.appendChild(submitButton);
+                // add event listener to submit button
+                submitButton.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var form = document.getElementById('form-edit-job');
+                    var formData = new FormData(form);
+                    var formDataJson = {};
+                    formData.forEach(function (value, key) {
+                        formDataJson[key] = value;
+                    });
+                    editElement(id, formDataJson, 'jobs');
+                    alert('Job edited successfully');
+                    window.location.href = './index.html';
+                });
                 return [2 /*return*/];
         }
     });
 }); };
-showJob(id);
+showForm();

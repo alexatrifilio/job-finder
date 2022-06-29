@@ -28,7 +28,7 @@ await fetch(`${host}/${endpoint}/${id}`, {
     })
 }
 
-const patchElement = async (id: string, data: Object, endpoint:string): Promise<void>=> {
+const editElement = async (id: string, data: Object, endpoint:string): Promise<void>=> {
 await fetch(`${host}/${endpoint}/${id}`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json", }, 
