@@ -48,7 +48,7 @@ var cardCreator = function (job) {
     var cardContainer = document.getElementById('card-container');
     var card = document.createElement('div');
     card.classList.add('card');
-    card.setAttribute('id', "card-".concat(job.id));
+    card.setAttribute('id', "card-" + job.id);
     var cardTitle = document.createElement('h2');
     cardTitle.classList.add('title');
     cardTitle.appendChild(document.createTextNode(job.name));
@@ -69,7 +69,7 @@ var cardCreator = function (job) {
     seniorityTag.appendChild(document.createTextNode(job.seniority));
     var btnDetails = document.createElement('a');
     btnDetails.classList.add('btn', 'primary-btn');
-    btnDetails.setAttribute('href', "./job-details.html?id=".concat(job.id));
+    btnDetails.setAttribute('href', "./job-details.html?id=" + job.id);
     btnDetails.setAttribute('id', 'btn-details');
     btnDetails.appendChild(document.createTextNode('See Details'));
     var btnsCont = document.createElement('div');
@@ -110,7 +110,7 @@ function createInputField(formId, type, name, fielTitle, placeholder, required) 
     input.setAttribute('name', name);
     input.setAttribute('placeholder', placeholder);
     input.setAttribute('required', required);
-    input.setAttribute('id', "input-".concat(name));
+    input.setAttribute('id', "input-" + name);
     inputContainer.appendChild(label);
     inputContainer.appendChild(input);
     form.appendChild(inputContainer);
@@ -128,7 +128,7 @@ function createSelectField(formId, name, fieldTitle, options) {
     select.setAttribute('name', name);
     option.appendChild(document.createTextNode('Seleccione una opción'));
     select.appendChild(option);
-    select.setAttribute('id', "select-".concat(name));
+    select.setAttribute('id', "select-" + name);
     for (var i in options) {
         var option_1 = document.createElement('option');
         option_1.appendChild(document.createTextNode(options[i]));
@@ -149,7 +149,7 @@ function createTextAreaField(formId, name, fieldTitle, placeholder) {
     label.appendChild(document.createTextNode(fieldTitle));
     textArea.setAttribute('name', name);
     textArea.setAttribute('placeholder', placeholder);
-    textArea.setAttribute('id', "textarea-".concat(name));
+    textArea.setAttribute('id', "textarea-" + name);
     textAreaContainer.appendChild(label);
     textAreaContainer.appendChild(textArea);
     form.appendChild(textAreaContainer);
