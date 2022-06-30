@@ -141,7 +141,7 @@
   font-size: 15px;
 }
 .card .min-description {
-  max-height: 30%;
+  height: 30%;
   overflow: hidden;
 }
 .card .tag-container .tag {
