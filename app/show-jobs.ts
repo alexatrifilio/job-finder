@@ -9,16 +9,18 @@ const category = parameters.get('category');
 // add options to select element //
 
 const locationSelect = document.getElementById('select-location') as HTMLSelectElement;
-addOptions(getJobs('country'), locationSelect, locat);
+addOptions(getElements('country'), locationSelect, locat);
 
 const senioritySelect = document.getElementById('select-seniority') as HTMLSelectElement;
-addOptions(getJobs('seniority'), senioritySelect, seniority);
+addOptions(getElements('seniority'), senioritySelect, seniority);
 
 const categorySelect = document.getElementById('select-category') as HTMLSelectElement;
-addOptions(getJobs('category'), categorySelect, category);
+addOptions(getElements('category'), categorySelect, category);
 
 
 // Add query params to URL //
+
+
 
 const queryParams = (select: HTMLSelectElement, param: string) => {
     
@@ -28,6 +30,8 @@ const queryParams = (select: HTMLSelectElement, param: string) => {
         parameters.set(param, target);
         window.location.href = `${window.location.pathname}?${parameters.toString()}`;
     })
+
+    
     
 }
 
@@ -46,103 +50,75 @@ const allCategories:HTMLElement = document.getElementById('all-categories') as H
 
 const filter = async () => {
 
-    const jobs = await getJobs('jobs');
+    let jobs = await getElements('jobs');
+
     
     
-    
-    const jobsByLocation = jobs.filter(job => {
+    if(locat !== 'all' || seniority !== 'all' || category !== 'all'){
+        const jobsByLoc = await getElements('jobs', locat);
+        const jobsBySen = await getElements('jobs', seniority);
+        const jobsByCat = await getElements('jobs', category);
         
-        if(parameters.get('location') === 'all') return true;
-
-
-        return job.location === parameters.get('location')
-    })
-
-    const jobsBySeniority = jobsByLocation.filter(job => {
-        if(parameters.get('seniority') === 'all') return true;
-        return job.seniority === parameters.get('seniority')
-    })
-
-    const jobsByCategory = jobsBySeniority.filter( job =>{
-        console.log('by cat');
-        if(parameters.get('category') === 'all') return true;
-        return job.category === parameters.get('category')
-        
-    })
-
-    jobsByCategory.forEach(job => {
-        cardCreator(job)
-    })
-
-    // if(window.location.search.includes('?')){
-    //     cardContainer.innerHTML = '';
-
-    //     if(locat === 'all'){
-    //         allLocations.setAttribute('selected', 'selected');
-    //     }
-    //     if(seniority === 'all'){
-    //         allSeniorities.setAttribute('select', 'select');
-    //     }
-    //     if(category === 'all'){
-    //         allCategories.setAttribute('select', 'select');
-    //     }
-
-    //     for (const job of jobs){ 
-    //         const locationLC = job.location.toLowerCase()
-    //         const seniorityLC = job.seniority.toLowerCase()
-    //         const categoryLC = job.category.toLowerCase()
-
-
-    //         if(locat && !seniority && !category){
-    //             // if(seniority === 'all'){
-    //             //     console.log('hola');
-                    
-    //             // }
-    //             if (locationLC === locat){
-    //                 cardCreator(job)
-    //             }
-    //         } else if (locat && seniority && !category){
-    //             console.log('location y seniority');
-    //             if (locationLC === locat && seniorityLC === seniority){
-    //                 cardCreator(job)
-    //             }
-    //         } else if (locat && seniority && category){
-    //             console.log('los tres')
-    //             if (locationLC === locat && seniorityLC === seniority && categoryLC === category){
-    //                 cardCreator(job)
-    //             }
-    //         } else if (!locat  && seniority && !category){
-    //             console.log('solo seniority');
-    //             if(locat === 'all' || category === 'all'){
-    //                 if (seniorityLC === seniority){
-    //                     cardCreator(job)
-    //                 }
-    //             }
-    //         } else if (!locat && seniority && category){
-    //             console.log('seniority y category')
-    //             if (seniorityLC === seniority && categoryLC === category){
-    //                 cardCreator(job)
-    //             }
-    //         } else if (locat && !seniority && category){
-    //             console.log('location y category')
-    //             if (locationLC === locat && categoryLC === category){
-    //                 cardCreator(job)
-    //             }
-    //         } else if(!locat  && !seniority && category){
-    //             console.log('solo category');
-    //             if (categoryLC === category){
-    //                 cardCreator(job)
-    //             }
+    } else{
+        let jobs = await getElements('jobs');
+        const jobsByAllLocations = jobs.filter(job => {
+            if(locat === 'all'){
+                ;
                 
-    //         }
-             
-            
+                return true
+            }
+        })
+        const jobsByAllSeniorities = jobs.filter(job => {
+            if(seniority === 'all'){
+                return true
+            }
+        }) 
+        const jobsByAllCategories = jobs.filter(job => {
+            if(category === 'all'){
+                return true
+            }
+        })
+    }
+    
+
+    // jobs.forEach((job) =>{
+    //     cardCreator(job)
+    // })
+    
+    // console.log(jobs);
+    
+    
+    // const jobsByLocation = jobs.filter(job => {
+    //     if(parameters.get('location') === 'all'){
+    //         return true
     //     }
-    // } else{
+    // })
+
+    // jobsByLocation.forEach(job => {
+    //     console.log(job);
         
-       //cardsCreator()
-    // }
+    //     cardCreator(job)
+    // } )
+
+    // const jobsBySeniority = jobsByLocation.filter(job => {
+    //     if(parameters.get('seniority') === 'all') return true;
+    //     return job.seniority === parameters.get('seniority')
+    // })
+
+    // const jobsByCategory = jobsBySeniority.filter( job =>{
+    //     console.log('by cat');
+    //     if(parameters.get('category') === 'all') return true;
+    //     return job.category === parameters.get('category')
+        
+    // })
+
+    // jobsByCategory.forEach(job => {
+    //     cardCreator(job)
+    // })
+
+   
 }
 
-filter()
+//filter()
+
 

@@ -42,11 +42,11 @@ var seniority = parameters.get('seniority');
 var category = parameters.get('category');
 // add options to select element //
 var locationSelect = document.getElementById('select-location');
-addOptions(getJobs('country'), locationSelect, locat);
+addOptions(getElements('country'), locationSelect, locat);
 var senioritySelect = document.getElementById('select-seniority');
-addOptions(getJobs('seniority'), senioritySelect, seniority);
+addOptions(getElements('seniority'), senioritySelect, seniority);
 var categorySelect = document.getElementById('select-category');
-addOptions(getJobs('category'), categorySelect, category);
+addOptions(getElements('category'), categorySelect, category);
 // Add query params to URL //
 var queryParams = function (select, param) {
     select.addEventListener('submit', function (e) {
@@ -64,33 +64,45 @@ var allSeniorities = document.getElementById('all-seniorities');
 var allCategories = document.getElementById('all-categories');
 // Filter //
 var filter = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs, jobsByLocation, jobsBySeniority, jobsByCategory;
+    var jobs, jobsByLoc, jobsBySen, jobsByCat, jobs_1, jobsByAllLocations, jobsByAllSeniorities, jobsByAllCategories;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, getJobs('jobs')];
+            case 0: return [4 /*yield*/, getElements('jobs')];
             case 1:
                 jobs = _a.sent();
-                jobsByLocation = jobs.filter(function (job) {
-                    if (parameters.get('location') === 'all')
+                if (!(locat !== 'all' || seniority !== 'all' || category !== 'all')) return [3 /*break*/, 5];
+                return [4 /*yield*/, getElements('jobs', locat)];
+            case 2:
+                jobsByLoc = _a.sent();
+                return [4 /*yield*/, getElements('jobs', seniority)];
+            case 3:
+                jobsBySen = _a.sent();
+                return [4 /*yield*/, getElements('jobs', category)];
+            case 4:
+                jobsByCat = _a.sent();
+                return [3 /*break*/, 7];
+            case 5: return [4 /*yield*/, getElements('jobs')];
+            case 6:
+                jobs_1 = _a.sent();
+                jobsByAllLocations = jobs_1.filter(function (job) {
+                    if (locat === 'all') {
+                        ;
                         return true;
-                    return job.location === parameters.get('location');
+                    }
                 });
-                jobsBySeniority = jobsByLocation.filter(function (job) {
-                    if (parameters.get('seniority') === 'all')
+                jobsByAllSeniorities = jobs_1.filter(function (job) {
+                    if (seniority === 'all') {
                         return true;
-                    return job.seniority === parameters.get('seniority');
+                    }
                 });
-                jobsByCategory = jobsBySeniority.filter(function (job) {
-                    console.log('by cat');
-                    if (parameters.get('category') === 'all')
+                jobsByAllCategories = jobs_1.filter(function (job) {
+                    if (category === 'all') {
                         return true;
-                    return job.category === parameters.get('category');
+                    }
                 });
-                jobsByCategory.forEach(function (job) {
-                    cardCreator(job);
-                });
-                return [2 /*return*/];
+                _a.label = 7;
+            case 7: return [2 /*return*/];
         }
     });
 }); };
-filter();
+//filter()
