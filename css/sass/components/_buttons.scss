@@ -8,6 +8,7 @@
 
 .primary-btn{
     background-color: $secondary;
+    border: 1px solid $secondary;
     color: $font-secondary;
 
     &:hover{

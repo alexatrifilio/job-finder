@@ -60,6 +60,29 @@
 .form-item:hover {
   box-shadow: -3px 4px 5px 0px rgba(255, 137, 40, 0.425);
 }
+.form-item.text-area {
+  height: 150px;
+  width: 400px;
+  padding: 20px;
+}
+.form-item.add {
+  width: 400px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.input-container .select {
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+.form-add {
+  margin: auto;
+  margin-top: 50px;
+}
 
 .card-container {
   display: flex;
@@ -79,6 +102,7 @@
 
 .primary-btn {
   background-color: #723bac;
+  border: 1px solid #723bac;
   color: #fce7e8;
 }
 .primary-btn:hover {
@@ -117,7 +141,7 @@
   font-size: 15px;
 }
 .card .min-description {
-  max-height: 30%;
+  height: 30%;
   overflow: hidden;
 }
 .card .tag-container .tag {

@@ -39,7 +39,7 @@ var host = "https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1";
 var postElement = function (data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("".concat(host, "/").concat(endpoint), {
+            case 0: return [4 /*yield*/, fetch(host + "/" + endpoint, {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data)
@@ -54,7 +54,7 @@ var getElements = function (endpoint) { return __awaiter(_this, void 0, void 0, 
     var get, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("".concat(host, "/").concat(endpoint))];
+            case 0: return [4 /*yield*/, fetch(host + "/" + endpoint)];
             case 1:
                 get = _a.sent();
                 return [4 /*yield*/, get.json()];
@@ -68,7 +68,7 @@ var getElement = function (id, endpoint) { return __awaiter(_this, void 0, void 
     var get, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("".concat(host, "/").concat(endpoint, "/").concat(id))];
+            case 0: return [4 /*yield*/, fetch(host + "/" + endpoint + "/" + id)];
             case 1:
                 get = _a.sent();
                 return [4 /*yield*/, get.json()];
@@ -81,7 +81,7 @@ var getElement = function (id, endpoint) { return __awaiter(_this, void 0, void 
 var deleteElement = function (id, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("".concat(host, "/").concat(endpoint, "/").concat(id), {
+            case 0: return [4 /*yield*/, fetch(host + "/" + endpoint + "/" + id, {
                     method: 'DELETE',
                     headers: { "Content-Type": "application/json" }
                 })];
@@ -94,7 +94,7 @@ var deleteElement = function (id, endpoint) { return __awaiter(_this, void 0, vo
 var editElement = function (id, data, endpoint) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("".concat(host, "/").concat(endpoint, "/").concat(id), {
+            case 0: return [4 /*yield*/, fetch(host + "/" + endpoint + "/" + id, {
                     method: 'PUT',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data)

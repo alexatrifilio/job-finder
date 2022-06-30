@@ -47,7 +47,7 @@ var showJob = function (id) { return __awaiter(_this, void 0, void 0, function (
                 job = _a.sent();
                 setTimeout(function () {
                     cardCreator(job);
-                    var thisCard = document.getElementById("card-".concat(id));
+                    var thisCard = document.getElementById("card-" + id);
                     thisCard.classList.add('single-card', 'card-large');
                     var fullDescription = document.getElementById('card-description');
                     fullDescription.classList.remove('min-description');
@@ -56,7 +56,7 @@ var showJob = function (id) { return __awaiter(_this, void 0, void 0, function (
                     unseeBtn.classList.add('hide');
                     var btnEdit = document.getElementById('btn-edit');
                     btnEdit.classList.add('btn', 'primary-btn');
-                    btnEdit.setAttribute('href', "./edit-job.html?id=".concat(id));
+                    btnEdit.setAttribute('href', "./edit-job.html?id=" + id);
                     var btnDel = document.getElementById('btn-delete');
                     btnDel.classList.add('btn', 'secondary-btn');
                     btnDel.addEventListener('click', function () { return __awaiter(_this, void 0, void 0, function () {

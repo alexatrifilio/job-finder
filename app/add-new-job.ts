@@ -8,7 +8,7 @@ addSelectOptions('select-category', createList('category'));
 
 // add back button
 const btnBack = document.createElement('a');
-btnBack.classList.add('btn','primary-btn');
+btnBack.classList.add('btn','secondary-btn');
 btnBack.setAttribute('href', './index.html');
 btnBack.setAttribute('id', 'btn-back');
 btnBack.appendChild(document.createTextNode('Back'));
@@ -17,7 +17,7 @@ formAddJob.appendChild(btnBack);
 // add submit button
 const submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
-submitButton.setAttribute('class', 'btn btn-primary');
+submitButton.setAttribute('class', 'btn primary-btn');
 submitButton.appendChild(document.createTextNode('Add'));
 formAddJob.appendChild(submitButton);
 
