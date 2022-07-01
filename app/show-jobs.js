@@ -44,7 +44,7 @@ var category = parameters.get('category');
 var queryParams = function (select, param) {
     select.addEventListener('submit', function (e) {
         e.preventDefault();
-        var target = (e.target.value).toLowerCase();
+        var target = (e.target.value);
         parameters.set(param, target);
         window.location.href = window.location.pathname + "?" + parameters.toString();
     });
@@ -57,48 +57,45 @@ var allSeniorities = document.getElementById('all-seniorities');
 var allCategories = document.getElementById('all-categories');
 var cardContainer = document.getElementById('card-container');
 var filter = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs, jobsByLoc, jobsBySen, jobsByCat, jobs_1, jobsByAllLocations, jobsByAllSeniorities, jobsByAllCategories;
+    var jobsByLoc, jobsBySen, jobsByCat, jobs, jobsByAllLocations, jobsByAllSeniorities, jobsByAllCategories;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, getElements('jobs')];
-            case 1:
-                jobs = _a.sent();
-                if (!(locat !== 'all' || seniority !== 'all' || category !== 'all')) return [3 /*break*/, 5];
+            case 0:
+                if (!(locat !== 'all' || seniority !== 'all' || category !== 'all')) return [3 /*break*/, 4];
                 return [4 /*yield*/, getElements('jobs', locat)];
-            case 2:
+            case 1:
                 jobsByLoc = _a.sent();
                 return [4 /*yield*/, getElements('jobs', seniority)];
-            case 3:
+            case 2:
                 jobsBySen = _a.sent();
                 return [4 /*yield*/, getElements('jobs', category)];
-            case 4:
+            case 3:
                 jobsByCat = _a.sent();
-                return [3 /*break*/, 7];
-            case 5: return [4 /*yield*/, getElements('jobs')];
-            case 6:
-                jobs_1 = _a.sent();
-                jobsByAllLocations = jobs_1.filter(function (job) {
+                return [3 /*break*/, 6];
+            case 4: return [4 /*yield*/, getElements('jobs')];
+            case 5:
+                jobs = _a.sent();
+                jobsByAllLocations = jobs.filter(function (job) {
                     if (locat === 'all') {
-                        ;
                         return true;
                     }
                 });
-                jobsByAllSeniorities = jobs_1.filter(function (job) {
+                jobsByAllSeniorities = jobs.filter(function (job) {
                     if (seniority === 'all') {
                         return true;
                     }
                 });
-                jobsByAllCategories = jobs_1.filter(function (job) {
+                jobsByAllCategories = jobs.filter(function (job) {
                     if (category === 'all') {
                         return true;
                     }
                 });
-                _a.label = 7;
-            case 7: return [2 /*return*/];
+                _a.label = 6;
+            case 6: return [2 /*return*/];
         }
     });
 }); };
-//filter()
+filter();
 // const cardsCreator = async () => {
 //     showLoader()
 //     cardContainer.innerHTML = '';

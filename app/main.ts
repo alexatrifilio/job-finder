@@ -168,13 +168,13 @@ const createList = async(endpoint): Promise<string[]> => {
 const addOptions = async (options: Tag [], append: HTMLElement) => {
 
     const elements = await options
+
     
-    console.log(options);
-    
-    for (let i of elements){
+    for (let element of elements){
 
         const options = document.createElement('option');
-        options.appendChild(document.createTextNode(i.name));
+        options.appendChild(document.createTextNode(element.name));
+        options.setAttribute('value', element.slug)
         append.appendChild(options);
     }
 }

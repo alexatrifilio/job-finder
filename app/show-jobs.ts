@@ -13,7 +13,7 @@ const queryParams = (select: HTMLSelectElement, param: string) => {
     
     select.addEventListener('submit', (e) => {
         e.preventDefault()
-        const target = (e.target.value).toLowerCase();       
+        const target = (e.target.value);       
         parameters.set(param, target);
         window.location.href = `${window.location.pathname}?${parameters.toString()}`;
     })
@@ -36,9 +36,6 @@ const cardContainer: HTMLElement = document.getElementById('card-container') as 
 
 const filter = async () => {
 
-    let jobs = await getElements('jobs');
-
-    
     if(locat !== 'all' || seniority !== 'all' || category !== 'all'){
         const jobsByLoc = await getElements('jobs', locat);
         const jobsBySen = await getElements('jobs', seniority);
@@ -48,8 +45,6 @@ const filter = async () => {
         let jobs = await getElements('jobs');
         const jobsByAllLocations = jobs.filter(job => {
             if(locat === 'all'){
-                ;
-                
                 return true
             }
         })
@@ -104,7 +99,7 @@ const filter = async () => {
    
 }
 
-//filter()
+filter()
 
 // const cardsCreator = async () => {
 

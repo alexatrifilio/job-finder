@@ -172,17 +172,17 @@ var createList = function (endpoint) { return __awaiter(_this, void 0, void 0, f
 }); };
 // Adding options to select elements //
 var addOptions = function (options, append) { return __awaiter(_this, void 0, void 0, function () {
-    var elements, _i, elements_1, i, options_1;
+    var elements, _i, elements_1, element, options_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, options];
             case 1:
                 elements = _a.sent();
-                console.log(options);
                 for (_i = 0, elements_1 = elements; _i < elements_1.length; _i++) {
-                    i = elements_1[_i];
+                    element = elements_1[_i];
                     options_1 = document.createElement('option');
-                    options_1.appendChild(document.createTextNode(i.name));
+                    options_1.appendChild(document.createTextNode(element.name));
+                    options_1.setAttribute('value', element.slug);
                     append.appendChild(options_1);
                 }
                 return [2 /*return*/];
