@@ -93,6 +93,27 @@ var cardCreator = function (job) {
     card.appendChild(btnsCont);
     cardContainer.appendChild(card);
 };
+// Multiple Card Creator //
+var cardsCreator = function () { return __awaiter(_this, void 0, void 0, function () {
+    var jobs;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                showLoader();
+                cardContainer.innerHTML = '';
+                return [4 /*yield*/, getElements('jobs')];
+            case 1:
+                jobs = _a.sent();
+                setTimeout(function () {
+                    jobs.forEach(function (element) {
+                        cardCreator(element);
+                    });
+                    hideLoader();
+                }, 1500);
+                return [2 /*return*/];
+        }
+    });
+}); };
 // Params //
 var params = new URLSearchParams(window.location.search);
 var id = params.get('id');
@@ -170,9 +191,13 @@ var createList = function (endpoint) { return __awaiter(_this, void 0, void 0, f
         }
     });
 }); };
+// 'All' option capture //
+var allLocations = document.getElementById('all-locations');
+var allSeniorities = document.getElementById('all-seniorities');
+var allCategories = document.getElementById('all-categories');
 // Adding options to select elements //
 var addOptions = function (options, append, selected) { return __awaiter(_this, void 0, void 0, function () {
-    var elements, _i, elements_1, element, opt, allLocations, allSeniorities, allCategories;
+    var elements, _i, elements_1, element, opt;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, options];
@@ -188,9 +213,6 @@ var addOptions = function (options, append, selected) { return __awaiter(_this, 
                     }
                     append.appendChild(opt);
                 }
-                allLocations = document.getElementById('all-locations');
-                allSeniorities = document.getElementById('all-seniorities');
-                allCategories = document.getElementById('all-categories');
                 if (selected === 'all') {
                     if (locat === 'all') {
                         allLocations.setAttribute('selected', 'selected');

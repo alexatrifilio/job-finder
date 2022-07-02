@@ -1,89 +1,98 @@
-// Get query params from URL //
-const parameters = new URLSearchParams(window.location.search);
-
-const locat = parameters.get('location');
-let seniority = parameters.get('seniority');
-const category = parameters.get('category');
-
-// Add options to select filter
-
-const locationSelect = document.getElementById('select-location') as HTMLSelectElement;
-addOptions(getElements('country'), locationSelect, locat);
-
-const senioritySelect = document.getElementById('select-seniority') as HTMLSelectElement;
-addOptions(getElements('seniority'), senioritySelect, seniority);
-
-const categorySelect = document.getElementById('select-category') as HTMLSelectElement;
-addOptions(getElements('category'), categorySelect, category);
-
-
-// Add query params to URL //
-
-
-
-const queryParams = (select: HTMLSelectElement, param: string) => {
-    
-    select.addEventListener('submit', (e) => {
-        e.preventDefault()
-        const target = (e.target.value);       
-        parameters.set(param, target);
-        window.location.href = `${window.location.pathname}?${parameters.toString()}`;
-    })
-
-    
-    
-}
-
-queryParams(locationSelect, 'location')
-queryParams(senioritySelect, 'seniority')
-queryParams(categorySelect, 'category')
-
-
-
+console.log(parameters.toString());
 const cardContainer: HTMLElement = document.getElementById('card-container') as HTMLDivElement;
 
+if(!window.location.href.includes('?')){
+    cardsCreator()
+}
+
+
+filterForm.addEventListener( 'submit', (e) =>{
+    e.preventDefault()
+
+    showLoader()
+
+    setTimeout(() => {
+        if(!parameters.toString().includes(locat)){
+            parameters.set('category', 'all');
+            allLocations.setAttribute('selected', 'selected')
+        }
+        if(!parameters.toString().includes(seniority)){
+            parameters.set('category', 'all');
+            allSeniorities.setAttribute('selected', 'selected')
+            
+        }
+        if (!parameters.toString().includes(category)){
+            parameters.set('category', 'all');
+            allCategories.setAttribute('selected', 'selected')
+            //window.location.href = `${window.location.pathname}?${parameters.toString()}`
+           
+        } 
+        hideLoader()
+    }, 1500);
+             
+    
+    
+    filter2()
+})
 
 
 // Filter //
 
-const filter2 = async () => {
+// const filter2 = async () => {
 
-    const jobs = await getElements('jobs');
+//     showLoader()
 
-    const temporalResponse = jobs.filter(job => {
+//     const jobs = await getElements('jobs');
 
-        if(parameters.get('location') === 'all') return true;
+//     setTimeout(() =>{
+//         const temporalResponse = jobs.filter(job => {
 
-        return job.location.toLowerCase() === parameters.get('location')
-    })
+//             if(parameters.get('location') === 'all') return true;
+    
+//             return job.location.toLowerCase() === parameters.get('location')
+//         });
+    
+//         const temporalResponse2 = temporalResponse.filter(job => {
+//             if(parameters.get('seniority') === 'all') return true;
+//             return job.seniority.toLowerCase() === parameters.get('seniority')
+//         });
+    
+    
+//         const finalResponse = temporalResponse2.filter( job => {
+//             if(parameters.get('category') === 'all') return true;
+    
+//             if(parameters.get('category').includes('-')){
+//                 const newCategory = parameters.get('category').replace(/-/g,' ');
+//                 return job.category.toLowerCase() === newCategory
+//             } else{
+    
+//                 return job.category.toLowerCase() === parameters.get('category')
+//             }
+//         });
+    
+//         finalResponse.forEach(job => {
+//             cardCreator(job)
+//         });
+//         hideLoader()
+
+//     },1500)
 
     
-
-    const temporalResponse2 = temporalResponse.filter(job => {
-        if(parameters.get('seniority') === 'all') return true;
-        return job.seniority.toLowerCase() === parameters.get('seniority')
-    })
-
-
-    const finalResponse = temporalResponse2.filter( job => {
-        if(parameters.get('category') === 'all') return true;
-
-        if(parameters.get('category').includes('-')){
-            const newCategory = parameters.get('category').replace(/-/g,' ');
-            return job.category.toLowerCase() === newCategory
-        } else{
-
-            return job.category.toLowerCase() === parameters.get('category')
-        }
-    })
-
-    finalResponse.forEach(job => {
-        cardCreator(job)
-    })
     
-}
+// }
 
-filter2()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
