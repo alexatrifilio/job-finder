@@ -1,6 +1,7 @@
 const button = document.getElementById('filter-btn') as HTMLButtonElement;
 const filterForm = document.getElementById('filter-form') as HTMLButtonElement;
 
+
 // Get query params from URL //
 
 const parameters = new URLSearchParams(window.location.search);
@@ -32,8 +33,7 @@ const queryParams = (select: HTMLSelectElement, param: string) => {
         const target = (e.target.value);       
         parameters.set(param, target);
         window.location.href = `${window.location.pathname}?${parameters.toString()}`;
-        
-
+    
     }) 
      
 }

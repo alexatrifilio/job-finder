@@ -1,3 +1,5 @@
+const message = document.getElementById('message') as HTMLSpanElement;
+
 
 // Loading component //
 
@@ -16,6 +18,11 @@ const hideLoader = () => {
 
 
 const cardCreator = (job: Job) => {
+
+
+    message.classList.add('hide')
+
+
     const cardContainer: HTMLElement = document.getElementById('card-container') as HTMLDivElement;
     const card = document.createElement('div');
         card.classList.add('card');

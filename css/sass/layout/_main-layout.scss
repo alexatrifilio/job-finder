@@ -32,6 +32,22 @@ main{
     padding-bottom: 50px;
 }
 
+
+
+.tag{
+    background-color: $accent;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: small;
+    padding: 5px;
+
+    &.message{
+        margin: auto;
+        margin-top: 90px;
+
+    }
+}
+
 .hide{
     display: none;
 }

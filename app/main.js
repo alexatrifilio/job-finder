@@ -1,4 +1,3 @@
-// Loading component //
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,6 +35,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+var message = document.getElementById('message');
+// Loading component //
 var loader = document.getElementById('loader');
 var showLoader = function () {
     loader.classList.add('loading');
@@ -45,6 +46,7 @@ var hideLoader = function () {
 };
 // Card Creator //
 var cardCreator = function (job) {
+    message.classList.add('hide');
     var cardContainer = document.getElementById('card-container');
     var card = document.createElement('div');
     card.classList.add('card');

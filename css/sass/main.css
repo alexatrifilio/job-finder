@@ -145,13 +145,8 @@
   overflow: hidden;
 }
 .card .tag-container .tag {
-  background-color: #ff8928;
-  border-radius: 5px;
-  display: inline-block;
-  font-size: small;
   margin-bottom: 10px;
   margin-right: 10px;
-  padding: 5px;
 }
 .card .btn {
   display: inline-block;
@@ -192,6 +187,18 @@ main {
   margin: auto;
   max-width: 80%;
   padding-bottom: 50px;
+}
+
+.tag {
+  background-color: #ff8928;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: small;
+  padding: 5px;
+}
+.tag.message {
+  margin: auto;
+  margin-top: 90px;
 }
 
 .hide {

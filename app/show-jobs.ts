@@ -7,6 +7,8 @@ if(!window.location.href.includes('?')){
 
 if(queryParams){
     showLoader()
+
+
 }
 
 filterForm.addEventListener( 'submit', (e) =>{
@@ -28,7 +30,7 @@ filterForm.addEventListener( 'submit', (e) =>{
            
         } 
 
-
+        message.classList.add('hide')
              
     
     
