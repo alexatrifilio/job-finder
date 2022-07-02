@@ -12,15 +12,12 @@ if(queryParams){
 filterForm.addEventListener( 'submit', (e) =>{
     e.preventDefault()
 
-    showLoader()
-
-    setTimeout(() => {
         if(!parameters.toString().includes(locat)){
-            parameters.set('category', 'all');
+            parameters.set('location', 'all');
             allLocations.setAttribute('selected', 'selected')
         }
         if(!parameters.toString().includes(seniority)){
-            parameters.set('category', 'all');
+            parameters.set('seniority', 'all');
             allSeniorities.setAttribute('selected', 'selected')
             
         }
@@ -30,8 +27,8 @@ filterForm.addEventListener( 'submit', (e) =>{
             //window.location.href = `${window.location.pathname}?${parameters.toString()}`
            
         } 
-        hideLoader()
-    }, 1500);
+
+
              
     
     

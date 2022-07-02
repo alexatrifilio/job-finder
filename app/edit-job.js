@@ -48,24 +48,24 @@ var populateForm = function (job) {
     document.getElementById('select-category').value = job['category'];
 };
 var showForm = function () { return __awaiter(_this, void 0, void 0, function () {
-    var job, btnBack, submitButton;
+    var job, submitButton, btnBack;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, getElement(id, 'jobs')];
             case 1:
                 job = _a.sent();
                 populateForm(job);
+                submitButton = document.createElement('button');
+                submitButton.setAttribute('type', 'submit');
+                submitButton.setAttribute('class', 'btn primary-btn');
+                submitButton.appendChild(document.createTextNode('Save'));
+                editJobForm.appendChild(submitButton);
                 btnBack = document.createElement('a');
-                btnBack.classList.add('btn', 'primary-btn');
+                btnBack.classList.add('btn', 'secondary-btn');
                 btnBack.setAttribute('href', './index.html');
                 btnBack.setAttribute('id', 'btn-back');
                 btnBack.appendChild(document.createTextNode('Back'));
                 editJobForm.appendChild(btnBack);
-                submitButton = document.createElement('button');
-                submitButton.setAttribute('type', 'submit');
-                submitButton.setAttribute('class', 'btn btn-primary');
-                submitButton.appendChild(document.createTextNode('Save'));
-                editJobForm.appendChild(submitButton);
                 // add event listener to submit button
                 submitButton.addEventListener('click', function (e) {
                     e.preventDefault();
