@@ -96,15 +96,22 @@ var filter = function () { return __awaiter(_this, void 0, void 0, function () {
     });
 }); };
 filter();
-// const cardsCreator = async () => {
-//     showLoader()
-//     cardContainer.innerHTML = '';
-//     const jobs = await getElements('jobs');
-//     setTimeout(() => {
-//         jobs.forEach((element) => {
-//             cardCreator(element);
-//         } );
-//         hideLoader()
-//     }, 1500);
-// }
-// cardsCreator()
+// Filter //
+var filter2 = function () { return __awaiter(_this, void 0, void 0, function () {
+    var jobs, temporalResponse, tempoarlResponse;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, getJobs('jobs')];
+            case 1:
+                jobs = _a.sent();
+                temporalResponse = jobs.filter(function (job) {
+                    if (parameters.get('location') === 'all')
+                        return true;
+                    return job.location === parameters.get('location');
+                });
+                tempoarlResponse = temporalResponse.filter(function (job) { return job.seniority === parameters.get('seniority'); });
+                return [2 /*return*/];
+        }
+    });
+}); };
+//filter()

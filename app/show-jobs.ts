@@ -101,28 +101,93 @@ const filter = async () => {
 
 filter()
 
-// const cardsCreator = async () => {
+// Filter //
 
-//     showLoader()
+const filter2 = async () => {
 
-//     cardContainer.innerHTML = '';
+    const jobs = await getJobs('jobs');
 
-//     const jobs = await getElements('jobs');
+    const temporalResponse = jobs.filter(job => {
 
-//     setTimeout(() => {
+        if(parameters.get('location') === 'all') return true;
 
-//         jobs.forEach((element) => {
-//             cardCreator(element);
-//         } );
-//         hideLoader()
+        return job.location === parameters.get('location')
+    })
 
-//     }, 1500);
-    
-    
-// }
+    const tempoarlResponse = temporalResponse.filter(job => job.seniority === parameters.get('seniority'))
+
+    // if(window.location.search.includes('?')){
+    //     cardContainer.innerHTML = '';
+
+    //     if(locat === 'all'){
+    //         allLocations.setAttribute('selected', 'selected');
+    //     }
+    //     if(seniority === 'all'){
+    //         allSeniorities.setAttribute('select', 'select');
+    //     }
+    //     if(category === 'all'){
+    //         allCategories.setAttribute('select', 'select');
+    //     }
+
+    //     for (const job of jobs){ 
+    //         const locationLC = job.location.toLowerCase()
+    //         const seniorityLC = job.seniority.toLowerCase()
+    //         const categoryLC = job.category.toLowerCase()
 
 
-// cardsCreator()
+    //         if(locat && !seniority && !category){
+    //             // if(seniority === 'all'){
+    //             //     console.log('hola');
+                    
+    //             // }
+    //             if (locationLC === locat){
+    //                 cardCreator(job)
+    //             }
+    //         } else if (locat && seniority && !category){
+    //             console.log('location y seniority');
+    //             if (locationLC === locat && seniorityLC === seniority){
+    //                 cardCreator(job)
+    //             }
+    //         } else if (locat && seniority && category){
+    //             console.log('los tres')
+    //             if (locationLC === locat && seniorityLC === seniority && categoryLC === category){
+    //                 cardCreator(job)
+    //             }
+    //         } else if (!locat  && seniority && !category){
+    //             console.log('solo seniority');
+    //             if(locat === 'all' || category === 'all'){
+    //                 if (seniorityLC === seniority){
+    //                     cardCreator(job)
+    //                 }
+    //             }
+    //         } else if (!locat && seniority && category){
+    //             console.log('seniority y category')
+    //             if (seniorityLC === seniority && categoryLC === category){
+    //                 cardCreator(job)
+    //             }
+    //         } else if (locat && !seniority && category){
+    //             console.log('location y category')
+    //             if (locationLC === locat && categoryLC === category){
+    //                 cardCreator(job)
+    //             }
+    //         } else if(!locat  && !seniority && category){
+    //             console.log('solo category');
+    //             if (categoryLC === category){
+    //                 cardCreator(job)
+    //             }
+                
+    //         }
+             
+            
+    //     }
+    // } else{
+        
+    //    cardsCreator()
+    // }
+}
+
+//filter()
+
 
 
 
