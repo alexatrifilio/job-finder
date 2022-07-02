@@ -1,6 +1,6 @@
-var locationSelect = document.getElementById('select-location');
-addOptions(getElements('country'), locationSelect);
-var senioritySelect = document.getElementById('select-seniority');
-addOptions(getElements('seniority'), senioritySelect);
-var categorySelect = document.getElementById('select-category');
-addOptions(getElements('category'), categorySelect);
+// const locationSelect = document.getElementById('select-location') as HTMLSelectElement;
+// addOptions(getElements('country'), locationSelect);
+// const senioritySelect = document.getElementById('select-seniority') as HTMLSelectElement;
+// addOptions(getElements('seniority'), senioritySelect);
+// const categorySelect = document.getElementById('select-category') as HTMLSelectElement;
+// addOptions(getElements('category'), categorySelect);

@@ -171,8 +171,8 @@ var createList = function (endpoint) { return __awaiter(_this, void 0, void 0, f
     });
 }); };
 // Adding options to select elements //
-var addOptions = function (options, append) { return __awaiter(_this, void 0, void 0, function () {
-    var elements, _i, elements_1, element, options_1;
+var addOptions = function (options, append, selected) { return __awaiter(_this, void 0, void 0, function () {
+    var elements, _i, elements_1, element, opt;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, options];
@@ -180,10 +180,13 @@ var addOptions = function (options, append) { return __awaiter(_this, void 0, vo
                 elements = _a.sent();
                 for (_i = 0, elements_1 = elements; _i < elements_1.length; _i++) {
                     element = elements_1[_i];
-                    options_1 = document.createElement('option');
-                    options_1.appendChild(document.createTextNode(element.name));
-                    options_1.setAttribute('value', element.slug);
-                    append.appendChild(options_1);
+                    opt = document.createElement('option');
+                    opt.appendChild(document.createTextNode(element.name));
+                    opt.setAttribute('value', element.slug);
+                    if (selected === element.slug) {
+                        opt.setAttribute('selected', 'selected');
+                    }
+                    append.appendChild(opt);
                 }
                 return [2 /*return*/];
         }

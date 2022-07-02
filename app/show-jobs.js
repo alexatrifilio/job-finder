@@ -40,6 +40,13 @@ var parameters = new URLSearchParams(window.location.search);
 var locat = parameters.get('location');
 var seniority = parameters.get('seniority');
 var category = parameters.get('category');
+// Add options to select filter
+var locationSelect = document.getElementById('select-location');
+addOptions(getElements('country'), locationSelect, locat);
+var senioritySelect = document.getElementById('select-seniority');
+addOptions(getElements('seniority'), senioritySelect, seniority);
+var categorySelect = document.getElementById('select-category');
+addOptions(getElements('category'), categorySelect, category);
 // Add query params to URL //
 var queryParams = function (select, param) {
     select.addEventListener('submit', function (e) {
@@ -56,49 +63,9 @@ var allLocations = document.getElementById('all-locations');
 var allSeniorities = document.getElementById('all-seniorities');
 var allCategories = document.getElementById('all-categories');
 var cardContainer = document.getElementById('card-container');
-var filter = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobsByLoc, jobsBySen, jobsByCat, jobs, jobsByAllLocations, jobsByAllSeniorities, jobsByAllCategories;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                if (!(locat !== 'all' || seniority !== 'all' || category !== 'all')) return [3 /*break*/, 4];
-                return [4 /*yield*/, getElements('jobs', locat)];
-            case 1:
-                jobsByLoc = _a.sent();
-                return [4 /*yield*/, getElements('jobs', seniority)];
-            case 2:
-                jobsBySen = _a.sent();
-                return [4 /*yield*/, getElements('jobs', category)];
-            case 3:
-                jobsByCat = _a.sent();
-                return [3 /*break*/, 6];
-            case 4: return [4 /*yield*/, getElements('jobs')];
-            case 5:
-                jobs = _a.sent();
-                jobsByAllLocations = jobs.filter(function (job) {
-                    if (locat === 'all') {
-                        return true;
-                    }
-                });
-                jobsByAllSeniorities = jobs.filter(function (job) {
-                    if (seniority === 'all') {
-                        return true;
-                    }
-                });
-                jobsByAllCategories = jobs.filter(function (job) {
-                    if (category === 'all') {
-                        return true;
-                    }
-                });
-                _a.label = 6;
-            case 6: return [2 /*return*/];
-        }
-    });
-}); };
-// filter()
 // Filter //
 var filter2 = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs, temporalResponse, temporalResponse2;
+    var jobs, temporalResponse, temporalResponse2, finalResponse;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, getElements('jobs')];
@@ -109,13 +76,18 @@ var filter2 = function () { return __awaiter(_this, void 0, void 0, function () 
                         return true;
                     return job.location.toLowerCase() === parameters.get('location');
                 });
-                temporalResponse.forEach(function (job) {
-                    cardCreator(job);
-                });
                 temporalResponse2 = temporalResponse.filter(function (job) {
                     if (parameters.get('seniority') === 'all')
                         return true;
                     return job.seniority.toLowerCase() === parameters.get('seniority');
+                });
+                finalResponse = temporalResponse2.filter(function (job) {
+                    if (parameters.get('category') === 'all')
+                        return true;
+                    return job.category.toLowerCase() === parameters.get('category');
+                });
+                finalResponse.forEach(function (job) {
+                    cardCreator(job);
                 });
                 return [2 /*return*/];
         }
