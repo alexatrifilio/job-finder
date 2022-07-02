@@ -2,6 +2,7 @@ const button = document.getElementById('filter-btn') as HTMLButtonElement;
 const filterForm = document.getElementById('filter-form') as HTMLButtonElement;
 
 // Get query params from URL //
+
 const parameters = new URLSearchParams(window.location.search);
 
 const locat = parameters.get('location');
