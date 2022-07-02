@@ -95,23 +95,30 @@ var filter = function () { return __awaiter(_this, void 0, void 0, function () {
         }
     });
 }); };
-filter();
+// filter()
 // Filter //
 var filter2 = function () { return __awaiter(_this, void 0, void 0, function () {
-    var jobs, temporalResponse, tempoarlResponse;
+    var jobs, temporalResponse, temporalResponse2;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, getJobs('jobs')];
+            case 0: return [4 /*yield*/, getElements('jobs')];
             case 1:
                 jobs = _a.sent();
                 temporalResponse = jobs.filter(function (job) {
                     if (parameters.get('location') === 'all')
                         return true;
-                    return job.location === parameters.get('location');
+                    return job.location.toLowerCase() === parameters.get('location');
                 });
-                tempoarlResponse = temporalResponse.filter(function (job) { return job.seniority === parameters.get('seniority'); });
+                temporalResponse.forEach(function (job) {
+                    cardCreator(job);
+                });
+                temporalResponse2 = temporalResponse.filter(function (job) {
+                    if (parameters.get('seniority') === 'all')
+                        return true;
+                    return job.seniority.toLowerCase() === parameters.get('seniority');
+                });
                 return [2 /*return*/];
         }
     });
 }); };
-//filter()
+filter2();

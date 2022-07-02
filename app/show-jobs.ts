@@ -99,22 +99,29 @@ const filter = async () => {
    
 }
 
-filter()
+// filter()
 
 // Filter //
 
 const filter2 = async () => {
 
-    const jobs = await getJobs('jobs');
+    const jobs = await getElements('jobs');
 
     const temporalResponse = jobs.filter(job => {
 
         if(parameters.get('location') === 'all') return true;
 
-        return job.location === parameters.get('location')
+        return job.location.toLowerCase() === parameters.get('location')
     })
 
-    const tempoarlResponse = temporalResponse.filter(job => job.seniority === parameters.get('seniority'))
+    temporalResponse.forEach(job => {
+        cardCreator(job)
+    })
+
+    const temporalResponse2 = temporalResponse.filter(job => {
+        if(parameters.get('seniority') === 'all') return true;
+        return job.seniority.toLowerCase() === parameters.get('seniority')
+    })
 
     // if(window.location.search.includes('?')){
     //     cardContainer.innerHTML = '';
@@ -186,7 +193,7 @@ const filter2 = async () => {
     // }
 }
 
-//filter()
+filter2()
 
 
 
