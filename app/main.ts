@@ -68,6 +68,28 @@ const cardCreator = (job: Job) => {
         cardContainer.appendChild(card);
 }
 
+// Multiple Card Creator //
+
+const cardsCreator = async () => {
+
+    showLoader()
+
+    cardContainer.innerHTML = '';
+
+    const jobs = await getElements('jobs');
+
+    setTimeout(() => {
+
+        jobs.forEach((element) => {
+            cardCreator(element);
+        } );
+        hideLoader()
+
+    }, 1500);
+    
+    
+}
+
 
 // Params //
 
@@ -163,20 +185,40 @@ const createList = async(endpoint): Promise<string[]> => {
 }
 
 
+// 'All' option capture //
+
+const allLocations:HTMLElement = document.getElementById('all-locations') as HTMLOptionElement;
+const allSeniorities:HTMLElement = document.getElementById('all-seniorities') as HTMLOptionElement;
+const allCategories:HTMLElement = document.getElementById('all-categories') as HTMLOptionElement;
+
 // Adding options to select elements //
 
-const addOptions = async (options: Tag [], append: HTMLElement) => {
+const addOptions = async (options: Tag [], append: HTMLElement, selected:string) => {
 
     const elements = await options
-    
-    console.log(options);
-    
-    for (let i of elements){
 
-        const options = document.createElement('option');
-        options.appendChild(document.createTextNode(i.name));
-        append.appendChild(options);
+    for (let element of elements){
+
+        const opt = document.createElement('option');
+        opt.appendChild(document.createTextNode(element.name));
+        opt.setAttribute('value', element.slug);
+        if(selected === element.slug){
+            opt.setAttribute('selected', 'selected');
+        }
+        append.appendChild(opt);
     }
+
+    if (selected === 'all'){
+        if(locat === 'all'){
+            allLocations.setAttribute('selected', 'selected')
+        } else if(seniority === 'all'){
+            allSeniorities.setAttribute('selected', 'selected')
+        }else if(category === 'all'){
+            allCategories.setAttribute('selected', 'selected')
+        }
+    }
+
+
 }
 
 const addSelectOptions = async (id: string, options: Promise<string[]>) => {

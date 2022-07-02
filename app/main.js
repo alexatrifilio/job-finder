@@ -93,6 +93,27 @@ var cardCreator = function (job) {
     card.appendChild(btnsCont);
     cardContainer.appendChild(card);
 };
+// Multiple Card Creator //
+var cardsCreator = function () { return __awaiter(_this, void 0, void 0, function () {
+    var jobs;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                showLoader();
+                cardContainer.innerHTML = '';
+                return [4 /*yield*/, getElements('jobs')];
+            case 1:
+                jobs = _a.sent();
+                setTimeout(function () {
+                    jobs.forEach(function (element) {
+                        cardCreator(element);
+                    });
+                    hideLoader();
+                }, 1500);
+                return [2 /*return*/];
+        }
+    });
+}); };
 // Params //
 var params = new URLSearchParams(window.location.search);
 var id = params.get('id');
@@ -170,20 +191,38 @@ var createList = function (endpoint) { return __awaiter(_this, void 0, void 0, f
         }
     });
 }); };
+// 'All' option capture //
+var allLocations = document.getElementById('all-locations');
+var allSeniorities = document.getElementById('all-seniorities');
+var allCategories = document.getElementById('all-categories');
 // Adding options to select elements //
-var addOptions = function (options, append) { return __awaiter(_this, void 0, void 0, function () {
-    var elements, _i, elements_1, i, options_1;
+var addOptions = function (options, append, selected) { return __awaiter(_this, void 0, void 0, function () {
+    var elements, _i, elements_1, element, opt;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, options];
             case 1:
                 elements = _a.sent();
-                console.log(options);
                 for (_i = 0, elements_1 = elements; _i < elements_1.length; _i++) {
-                    i = elements_1[_i];
-                    options_1 = document.createElement('option');
-                    options_1.appendChild(document.createTextNode(i.name));
-                    append.appendChild(options_1);
+                    element = elements_1[_i];
+                    opt = document.createElement('option');
+                    opt.appendChild(document.createTextNode(element.name));
+                    opt.setAttribute('value', element.slug);
+                    if (selected === element.slug) {
+                        opt.setAttribute('selected', 'selected');
+                    }
+                    append.appendChild(opt);
+                }
+                if (selected === 'all') {
+                    if (locat === 'all') {
+                        allLocations.setAttribute('selected', 'selected');
+                    }
+                    else if (seniority === 'all') {
+                        allSeniorities.setAttribute('selected', 'selected');
+                    }
+                    else if (category === 'all') {
+                        allCategories.setAttribute('selected', 'selected');
+                    }
                 }
                 return [2 /*return*/];
         }
