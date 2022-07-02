@@ -59,9 +59,6 @@ var queryParams = function (select, param) {
 queryParams(locationSelect, 'location');
 queryParams(senioritySelect, 'seniority');
 queryParams(categorySelect, 'category');
-var allLocations = document.getElementById('all-locations');
-var allSeniorities = document.getElementById('all-seniorities');
-var allCategories = document.getElementById('all-categories');
 var cardContainer = document.getElementById('card-container');
 // Filter //
 var filter2 = function () { return __awaiter(_this, void 0, void 0, function () {
@@ -84,7 +81,13 @@ var filter2 = function () { return __awaiter(_this, void 0, void 0, function () 
                 finalResponse = temporalResponse2.filter(function (job) {
                     if (parameters.get('category') === 'all')
                         return true;
-                    return job.category.toLowerCase() === parameters.get('category');
+                    if (parameters.get('category').includes('-')) {
+                        var newCategory = parameters.get('category').replace(/-/g, ' ');
+                        return job.category.toLowerCase() === newCategory;
+                    }
+                    else {
+                        return job.category.toLowerCase() === parameters.get('category');
+                    }
                 });
                 finalResponse.forEach(function (job) {
                     cardCreator(job);

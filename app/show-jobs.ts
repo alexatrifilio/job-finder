@@ -40,12 +40,7 @@ queryParams(categorySelect, 'category')
 
 
 
-const allLocations:HTMLElement = document.getElementById('all-locations') as HTMLOptionElement;
-const allSeniorities:HTMLElement = document.getElementById('all-seniorities') as HTMLOptionElement;
-const allCategories:HTMLElement = document.getElementById('all-categories') as HTMLOptionElement;
-
 const cardContainer: HTMLElement = document.getElementById('card-container') as HTMLDivElement;
-
 
 
 
@@ -72,7 +67,14 @@ const filter2 = async () => {
 
     const finalResponse = temporalResponse2.filter( job => {
         if(parameters.get('category') === 'all') return true;
-        return job.category.toLowerCase() === parameters.get('category')
+
+        if(parameters.get('category').includes('-')){
+            const newCategory = parameters.get('category').replace(/-/g,' ');
+            return job.category.toLowerCase() === newCategory
+        } else{
+
+            return job.category.toLowerCase() === parameters.get('category')
+        }
     })
 
     finalResponse.forEach(job => {

@@ -179,6 +179,21 @@ const addOptions = async (options: Tag [], append: HTMLElement, selected:string)
         }
         append.appendChild(opt);
     }
+
+    const allLocations:HTMLElement = document.getElementById('all-locations') as HTMLOptionElement;
+    const allSeniorities:HTMLElement = document.getElementById('all-seniorities') as HTMLOptionElement;
+    const allCategories:HTMLElement = document.getElementById('all-categories') as HTMLOptionElement;
+
+    if (selected === 'all'){
+        if(locat === 'all'){
+            allLocations.setAttribute('selected', 'selected')
+        } else if(seniority === 'all'){
+            allSeniorities.setAttribute('selected', 'selected')
+        }else if(category === 'all'){
+            allCategories.setAttribute('selected', 'selected')
+        }
+    }
+
 }
 
 const addSelectOptions = async (id: string, options: Promise<string[]>) => {

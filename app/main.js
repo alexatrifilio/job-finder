@@ -172,7 +172,7 @@ var createList = function (endpoint) { return __awaiter(_this, void 0, void 0, f
 }); };
 // Adding options to select elements //
 var addOptions = function (options, append, selected) { return __awaiter(_this, void 0, void 0, function () {
-    var elements, _i, elements_1, element, opt;
+    var elements, _i, elements_1, element, opt, allLocations, allSeniorities, allCategories;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, options];
@@ -187,6 +187,20 @@ var addOptions = function (options, append, selected) { return __awaiter(_this, 
                         opt.setAttribute('selected', 'selected');
                     }
                     append.appendChild(opt);
+                }
+                allLocations = document.getElementById('all-locations');
+                allSeniorities = document.getElementById('all-seniorities');
+                allCategories = document.getElementById('all-categories');
+                if (selected === 'all') {
+                    if (locat === 'all') {
+                        allLocations.setAttribute('selected', 'selected');
+                    }
+                    else if (seniority === 'all') {
+                        allSeniorities.setAttribute('selected', 'selected');
+                    }
+                    else if (category === 'all') {
+                        allCategories.setAttribute('selected', 'selected');
+                    }
                 }
                 return [2 /*return*/];
         }
