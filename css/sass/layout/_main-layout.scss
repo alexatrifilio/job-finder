@@ -71,6 +71,10 @@ main{
         margin: auto;
         margin-top: 90px;
 
+        @media (max-width: 550px){
+            margin-top: 20px;
+        }
+
     }
 }
 
