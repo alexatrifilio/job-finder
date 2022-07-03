@@ -83,7 +83,7 @@
         height: 3px;
         display: block;
         background: $font-primary;
-        transition: all 0.2s;
+        transition: all 350ms;
         border-radius: 20px;
     }
 }
@@ -100,14 +100,14 @@
 
 .top-bun{
     &.active{
-        transform: rotate(-45deg) translateX(-6.2px);
+        transform: rotate(-45deg) translateX(-7px);
         width: 50%;
     }
 }
 
 .bottom-bun{
     &.active{
-        transform: rotate(45deg) translateX(-6.2px);
+        transform: rotate(45deg) translateX(-7px);
         width: 50%;
     }
 }
