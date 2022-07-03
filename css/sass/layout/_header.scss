@@ -5,18 +5,107 @@
     justify-content: space-between;
     padding: 10px 40px;
 
+    .mobile-nav-toggle{
+        display: none;
+    }
+
+    @media (max-width: 550px){
+        .mobile-nav-toggle{
+            display: block;
+            border: 0;
+            position: absolute;
+            z-index: 9999;
+            top: 2rem;
+            right: 2rem;
+            width: 2rem;
+            height: 2rem;
+            background: #ff892800;
+        }
+    }
+    
+
     .primary-nav{
+        display: flex;
+        align-items: center;
         .nav-list{
             display: flex;
+            margin: 0;
+            padding: 0;
+            
             .list-item{
                 list-style: none;
 
                 .nav-link{
                     color: $font-primary;
-                    margin-right: 20px;
+                   margin-inline-end: 20px;
                     text-decoration: none;
                 }
             }
+
+            @media (max-width: 550px){
+                position: fixed;
+                inset: 0 0 0 40%;
+                background-color: #ff8928;
+                flex-direction: column;
+                align-items: center;
+                padding: min(30vh, 105px) 30px;
+
+                transform: translateX(100%);
+                
+                @supports (backdrop-filter: blur(2rem)){
+                    background-color: #ff892880;
+                    backdrop-filter: blur(2rem);
+                }
+
+
+                .list-item{
+                    margin-bottom: 30px;
+                }
+
+                &[data-visible="true"]{
+                    transform: translateX(0%);
+                }
+
+                
+            }
         }
+    }
+}
+
+/* Hamburger Menu*/
+
+.hamburger{
+    background: #ff892800;
+    span{
+        width: 100%;
+        height: 3px;
+        display: block;
+        background: $font-primary;
+        transition: all 0.2s;
+        border-radius: 20px;
+    }
+}
+
+
+
+.stuffing{
+    margin: 5px 0;
+    &.active{
+        width: 80%;
+        transform: translateX(-1.8px);
+    }
+}
+
+.top-bun{
+    &.active{
+        transform: rotate(-45deg) translateX(-6.2px);
+        width: 50%;
+    }
+}
+
+.bottom-bun{
+    &.active{
+        transform: rotate(45deg) translateX(-6.2px);
+        width: 50%;
     }
 }

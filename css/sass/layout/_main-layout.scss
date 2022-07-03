@@ -10,6 +10,7 @@ body{
     font-family: 'Space Grotesk', sans-serif;
     height: 100vh;
     margin: 0;
+    overflow-x: hidden;
 }
 
 a{
@@ -75,4 +76,8 @@ main{
 
 .hide{
     display: none;
+}
+
+.sr-only{
+    visibility: hidden;
 }

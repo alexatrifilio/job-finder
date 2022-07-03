@@ -44,6 +44,25 @@ var showLoader = function () {
 var hideLoader = function () {
     loader.classList.remove('loading');
 };
+// Hamburger Menu //
+var primaryNav = document.getElementById('nav-list');
+var navToggle = document.getElementById('mobile-nav-toggle');
+navToggle.addEventListener('click', function () {
+    var visibility = primaryNav.getAttribute('data-visible');
+    if (visibility === 'false') {
+        primaryNav.setAttribute('data-visible', 'true');
+        navToggle.setAttribute('aria-expanded', 'true');
+    }
+    else {
+        primaryNav.setAttribute('data-visible', 'false');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
+});
+var hamburger = document.getElementById('hamburger');
+var hamburgerLayers = document.querySelectorAll('.hamburger span');
+hamburger.addEventListener('click', function () {
+    hamburgerLayers.forEach(function (layer) { return layer.classList.toggle('active'); });
+});
 // Card Creator //
 var cardCreator = function (job) {
     message.classList.add('hide');

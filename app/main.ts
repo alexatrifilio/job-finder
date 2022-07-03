@@ -14,6 +14,34 @@ const hideLoader = () => {
 }
 
 
+
+// Hamburger Menu //
+
+const primaryNav = document.getElementById('nav-list') as HTMLUListElement;
+const navToggle = document.getElementById('mobile-nav-toggle') as HTMLButtonElement;
+
+navToggle.addEventListener('click', () =>{
+    const visibility = primaryNav.getAttribute('data-visible');
+    if(visibility === 'false'){
+        primaryNav.setAttribute('data-visible', 'true');
+        navToggle.setAttribute('aria-expanded', 'true');
+    } else {
+        primaryNav.setAttribute('data-visible', 'false');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
+    
+
+    
+})
+
+const hamburger = document.getElementById('hamburger') as HTMLDivElement;
+const hamburgerLayers = document.querySelectorAll('.hamburger span');
+
+hamburger.addEventListener('click', () =>{
+    hamburgerLayers.forEach(layer => layer.classList.toggle('active'));
+})
+
+
 // Card Creator //
 
 

@@ -12,8 +12,16 @@
         <div>
             <h1 class="site-name"> Careers </h1>
         </div>
+        <button class="mobile-nav-toggle" aria-controls="nav-list" aria-expanded="false" id="mobile-nav-toggle">
+            <span class="sr-only">Menu</span>
+            <div class="hamburger" id="hamburger">
+                <span class="top-bun" aria-hidden="true"></span>
+                <span class="stuffing" aria-hidden="true"></span>
+                <span class="bottom-bun" aria-hidden="true"></span>
+            </div>
+        </button>
         <nav id="primary-nav" class="primary-nav">
-            <ul class="nav-list">
+            <ul id="nav-list" class="nav-list" data-visible="false">
                 <li class="list-item"><a href="./index.html" class="nav-link"> Home </a></li>
                 <li class="list-item"><a href="./add-job.html" class="nav-link"> Create Job </a></li>
             </ul>
@@ -51,6 +59,7 @@
     
 
     <footer class="footer"> Developed by Vanessa Neira and Alejandra Trifilio</footer>
+
     <script src="./api/jobs-data.js"></script>
     <script src="./app/types.js"></script>
     <script src="./app/main.js"></script>
