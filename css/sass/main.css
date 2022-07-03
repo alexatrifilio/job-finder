@@ -54,8 +54,8 @@
   }
   @supports (backdrop-filter: blur(2rem)) {
     .top .primary-nav .nav-list {
-      background-color: rgba(255, 137, 40, 0.5019607843);
-      backdrop-filter: blur(2rem);
+      background-color: rgba(255, 137, 40, 0.3490196078);
+      backdrop-filter: blur(1.5rem);
     }
   }
   .top .primary-nav .nav-list .list-item {
@@ -350,7 +350,7 @@ main {
 }
 @media (max-width: 550px) {
   .tag.message {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 }
 

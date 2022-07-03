@@ -1,4 +1,5 @@
 const message = document.getElementById('message') as HTMLSpanElement;
+const noJobMessage = document.getElementById('no-job-message') as HTMLSpanElement;
 
 
 // Loading component //
@@ -19,6 +20,8 @@ const hideLoader = () => {
 
 const primaryNav = document.getElementById('nav-list') as HTMLUListElement;
 const navToggle = document.getElementById('mobile-nav-toggle') as HTMLButtonElement;
+const hamburger = document.getElementById('hamburger') as HTMLDivElement;
+const hamburgerLayers = document.querySelectorAll('.hamburger span');
 
 navToggle.addEventListener('click', () =>{
     const visibility = primaryNav.getAttribute('data-visible');
@@ -29,17 +32,11 @@ navToggle.addEventListener('click', () =>{
         primaryNav.setAttribute('data-visible', 'false');
         navToggle.setAttribute('aria-expanded', 'false');
     }
-    
-
-    
-})
-
-const hamburger = document.getElementById('hamburger') as HTMLDivElement;
-const hamburgerLayers = document.querySelectorAll('.hamburger span');
-
-hamburger.addEventListener('click', () =>{
     hamburgerLayers.forEach(layer => layer.classList.toggle('active'));
+
+    
 })
+
 
 
 // Card Creator //

@@ -76,6 +76,12 @@ const filter2 = async () => {
                 return job.category.toLowerCase() === parameters.get('category')
             }
         });
+
+        if(finalResponse.length < 1){
+            console.log('anda');
+            
+            noJobMessage.classList.remove('hide')
+        }
     
         finalResponse.forEach(job => {
             cardCreator(job)

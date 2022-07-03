@@ -93,6 +93,10 @@ var filter2 = function () { return __awaiter(_this, void 0, void 0, function () 
                             return job.category.toLowerCase() === parameters.get('category');
                         }
                     });
+                    if (finalResponse.length < 1) {
+                        console.log('anda');
+                        noJobMessage.classList.remove('hide');
+                    }
                     finalResponse.forEach(function (job) {
                         cardCreator(job);
                     });

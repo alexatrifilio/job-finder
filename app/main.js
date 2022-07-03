@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var message = document.getElementById('message');
+var noJobMessage = document.getElementById('no-job-message');
 // Loading component //
 var loader = document.getElementById('loader');
 var showLoader = function () {
@@ -47,6 +48,8 @@ var hideLoader = function () {
 // Hamburger Menu //
 var primaryNav = document.getElementById('nav-list');
 var navToggle = document.getElementById('mobile-nav-toggle');
+var hamburger = document.getElementById('hamburger');
+var hamburgerLayers = document.querySelectorAll('.hamburger span');
 navToggle.addEventListener('click', function () {
     var visibility = primaryNav.getAttribute('data-visible');
     if (visibility === 'false') {
@@ -57,10 +60,6 @@ navToggle.addEventListener('click', function () {
         primaryNav.setAttribute('data-visible', 'false');
         navToggle.setAttribute('aria-expanded', 'false');
     }
-});
-var hamburger = document.getElementById('hamburger');
-var hamburgerLayers = document.querySelectorAll('.hamburger span');
-hamburger.addEventListener('click', function () {
     hamburgerLayers.forEach(function (layer) { return layer.classList.toggle('active'); });
 });
 // Card Creator //

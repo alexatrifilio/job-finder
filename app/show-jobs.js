@@ -16,7 +16,6 @@ filterForm.addEventListener('submit', function (e) {
     if (!parameters.toString().includes(category)) {
         parameters.set('category', 'all');
         allCategories.setAttribute('selected', 'selected');
-        //window.location.href = `${window.location.pathname}?${parameters.toString()}`
     }
     message.classList.add('hide');
     filter2();
