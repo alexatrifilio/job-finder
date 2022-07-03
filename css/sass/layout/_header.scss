@@ -15,7 +15,7 @@
             border: 0;
             position: absolute;
             z-index: 9999;
-            top: 2rem;
+            top: 0.3rem;
             right: 2rem;
             width: 2rem;
             height: 2rem;
@@ -51,6 +51,8 @@
                 padding: min(30vh, 105px) 30px;
 
                 transform: translateX(100%);
+                transition: transform 350ms ease-out;
+                
                 
                 @supports (backdrop-filter: blur(2rem)){
                     background-color: #ff892880;
