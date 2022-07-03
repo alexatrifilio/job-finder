@@ -2,7 +2,8 @@
 const showJob = async (id: string) => {
     
     showLoader();
-    
+    message.classList.add('hide')
+
     const job: Job = await getElement(id, 'jobs');
 
     setTimeout(() => {

@@ -32,6 +32,31 @@ main{
     padding-bottom: 50px;
 }
 
+.card-container{
+    justify-content: space-between;
+
+    @media (max-width: 1162px){
+        justify-content: space-around;
+        .card{
+            margin-right: 15px;
+            margin-bottom: 30px;
+        }
+    }
+    @media (max-width: 799px){
+        margin: auto;
+        .card{
+            height: 400px;
+            margin: auto;
+            margin-bottom: 30px;
+            width: 400px;
+
+            @media (max-width: 550px){
+                height: 300px;
+                width: 300px;
+            }
+        }
+    }
+}
 
 
 .tag{

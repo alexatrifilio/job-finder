@@ -43,6 +43,7 @@
 }
 .filter-form {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 50px 0px;
 }
@@ -68,6 +69,11 @@
 .form-item.add {
   width: 400px;
 }
+@media (max-width: 800px) {
+  .form-item {
+    margin-bottom: 10px;
+  }
+}
 
 .input-container {
   display: flex;
@@ -82,6 +88,30 @@
 .form-add {
   margin: auto;
   margin-top: 50px;
+}
+
+@media (max-width: 992px) {
+  .form-items {
+    margin: auto;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 799px) {
+  .form-items {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .form-btns {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
 }
 
 .card-container {
@@ -187,6 +217,36 @@ main {
   margin: auto;
   max-width: 80%;
   padding-bottom: 50px;
+}
+
+.card-container {
+  justify-content: space-between;
+}
+@media (max-width: 1162px) {
+  .card-container {
+    justify-content: space-around;
+  }
+  .card-container .card {
+    margin-right: 15px;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 799px) {
+  .card-container {
+    margin: auto;
+  }
+  .card-container .card {
+    height: 400px;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 400px;
+  }
+}
+@media (max-width: 799px) and (max-width: 550px) {
+  .card-container .card {
+    height: 300px;
+    width: 300px;
+  }
 }
 
 .tag {

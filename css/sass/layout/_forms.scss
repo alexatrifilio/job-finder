@@ -1,7 +1,9 @@
 .filter-form{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 50px 0px;
+
 }
 
 .form-item{
@@ -25,6 +27,10 @@
     &.add{
         width: 400px;
     }
+
+    @media (max-width: 800px){
+        margin-bottom: 10px;
+    }
 }
 .input-container{
     display: flex;
@@ -39,4 +45,27 @@
 .form-add{
     margin: auto;
     margin-top: 50px;
+}
+
+.form-items{
+    @media (max-width: 992px){
+        margin: auto;
+        margin-bottom: 15px;
+    }
+    @media (max-width: 799px){
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+}
+
+.form-btns{
+    
+    @media (max-width: 992px){
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
 }
