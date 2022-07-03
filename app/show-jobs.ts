@@ -5,11 +5,7 @@ if(!window.location.href.includes('?')){
     cardsCreator()
 }
 
-if(queryParams){
-    showLoader()
 
-
-}
 
 filterForm.addEventListener( 'submit', (e) =>{
     e.preventDefault()

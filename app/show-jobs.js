@@ -3,9 +3,6 @@ var cardContainer = document.getElementById('card-container');
 if (!window.location.href.includes('?')) {
     cardsCreator();
 }
-if (queryParams) {
-    showLoader();
-}
 filterForm.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!parameters.toString().includes(locat)) {
