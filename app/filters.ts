@@ -1,5 +1,11 @@
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
+
 const button = document.getElementById('filter-btn') as HTMLButtonElement;
 const filterForm = document.getElementById('filter-form') as HTMLButtonElement;
+
 
 // Get query params from URL //
 
@@ -24,7 +30,6 @@ addOptions(getElements('category'), categorySelect, category);
 // Add query params to URL //
 
 
-
 const queryParams = (select: HTMLSelectElement, param: string) => {
     
     select.addEventListener('change', (e) => {
@@ -32,8 +37,7 @@ const queryParams = (select: HTMLSelectElement, param: string) => {
         const target = (e.target.value);       
         parameters.set(param, target);
         window.location.href = `${window.location.pathname}?${parameters.toString()}`;
-        
-
+    
     }) 
      
 }
@@ -41,7 +45,6 @@ const queryParams = (select: HTMLSelectElement, param: string) => {
 queryParams(locationSelect, 'location')
 queryParams(senioritySelect, 'seniority')
 queryParams(categorySelect, 'category')
-
 
 // Filter Jobs //
 
@@ -76,6 +79,12 @@ const filter2 = async () => {
                 return job.category.toLowerCase() === parameters.get('category')
             }
         });
+
+        if(finalResponse.length < 1){
+            console.log('anda');
+            
+            noJobMessage.classList.remove('hide')
+        }
     
         finalResponse.forEach(job => {
             cardCreator(job)

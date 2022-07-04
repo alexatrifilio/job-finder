@@ -2,7 +2,7 @@
     border: 1px solid $font-primary;
     border-radius: 5px;
     margin: 15px 5px;
-    height: 300px;
+    height: 350px;
     width: 300px;
     padding: $padding;
 
@@ -21,6 +21,7 @@
 
     .description{
         font-size: 15px;
+        min-height: 30%;
     }
 
     .min-description{
@@ -29,14 +30,10 @@
     }
 
     .tag-container{
+        min-height: 25%;
         .tag{
-            background-color: $accent;
-            border-radius: 5px;
-            display: inline-block;
-            font-size: small;
             margin-bottom: 10px;
             margin-right: 10px;
-            padding: 5px;
         }
     }
 

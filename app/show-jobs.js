@@ -1,11 +1,13 @@
-console.log(parameters.toString());
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
 var cardContainer = document.getElementById('card-container');
+// Show all jobs //
 if (!window.location.href.includes('?')) {
     cardsCreator();
 }
-if (queryParams) {
-    showLoader();
-}
+// Show filtered jobs //
 filterForm.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!parameters.toString().includes(locat)) {
@@ -19,7 +21,7 @@ filterForm.addEventListener('submit', function (e) {
     if (!parameters.toString().includes(category)) {
         parameters.set('category', 'all');
         allCategories.setAttribute('selected', 'selected');
-        //window.location.href = `${window.location.pathname}?${parameters.toString()}`
     }
+    message.classList.add('hide');
     filter2();
 });

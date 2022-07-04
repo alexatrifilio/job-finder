@@ -1,3 +1,7 @@
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -93,6 +97,10 @@ var filter2 = function () { return __awaiter(_this, void 0, void 0, function () 
                             return job.category.toLowerCase() === parameters.get('category');
                         }
                     });
+                    if (finalResponse.length < 1) {
+                        console.log('anda');
+                        noJobMessage.classList.remove('hide');
+                    }
                     finalResponse.forEach(function (job) {
                         cardCreator(job);
                     });

@@ -10,6 +10,7 @@ body{
     font-family: 'Space Grotesk', sans-serif;
     height: 100vh;
     margin: 0;
+    overflow-x: hidden;
 }
 
 a{
@@ -32,6 +33,55 @@ main{
     padding-bottom: 50px;
 }
 
+.card-container{
+    justify-content: space-between;
+
+    @media (max-width: 1162px){
+        justify-content: space-around;
+        .card{
+            margin-right: 15px;
+            margin-bottom: 30px;
+        }
+    }
+    @media (max-width: 799px){
+        margin: auto;
+        .card{
+            height: 400px;
+            margin: auto;
+            margin-bottom: 30px;
+            width: 400px;
+
+            @media (max-width: 550px){
+                height: 300px;
+                width: 300px;
+            }
+        }
+    }
+}
+
+
+.tag{
+    background-color: $accent;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: small;
+    padding: 5px;
+
+    &.message{
+        margin: auto;
+        margin-top: 90px;
+
+        @media (max-width: 550px){
+            margin-top: 40px;
+        }
+
+    }
+}
+
 .hide{
     display: none;
+}
+
+.sr-only{
+    visibility: hidden;
 }

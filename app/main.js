@@ -1,4 +1,7 @@
-// Loading component //
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,6 +39,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+// Search Messages //
+var message = document.getElementById('message');
+var noJobMessage = document.getElementById('no-job-message');
+// Loading component //
 var loader = document.getElementById('loader');
 var showLoader = function () {
     loader.classList.add('loading');
@@ -43,8 +50,26 @@ var showLoader = function () {
 var hideLoader = function () {
     loader.classList.remove('loading');
 };
+// Hamburger Menu //
+var primaryNav = document.getElementById('nav-list');
+var navToggle = document.getElementById('mobile-nav-toggle');
+var hamburger = document.getElementById('hamburger');
+var hamburgerLayers = document.querySelectorAll('.hamburger span');
+navToggle.addEventListener('click', function () {
+    var visibility = primaryNav.getAttribute('data-visible');
+    if (visibility === 'false') {
+        primaryNav.setAttribute('data-visible', 'true');
+        navToggle.setAttribute('aria-expanded', 'true');
+    }
+    else {
+        primaryNav.setAttribute('data-visible', 'false');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
+    hamburgerLayers.forEach(function (layer) { return layer.classList.toggle('active'); });
+});
 // Card Creator //
 var cardCreator = function (job) {
+    message.classList.add('hide');
     var cardContainer = document.getElementById('card-container');
     var card = document.createElement('div');
     card.classList.add('card');
@@ -118,63 +143,6 @@ var cardsCreator = function () { return __awaiter(_this, void 0, void 0, functio
 var params = new URLSearchParams(window.location.search);
 var id = params.get('id');
 // Form Functions //
-function createInputField(formId, type, name, fielTitle, placeholder, required) {
-    var form = document.getElementById(formId);
-    var inputContainer = document.createElement('div');
-    var label = document.createElement('label');
-    var input = document.createElement('input');
-    inputContainer.classList.add('d-flex', 'flex-column', 'mb-3');
-    label.setAttribute('for', fielTitle);
-    label.appendChild(document.createTextNode(fielTitle));
-    label.classList.add('mb-1');
-    input.setAttribute('type', type);
-    input.setAttribute('name', name);
-    input.setAttribute('placeholder', placeholder);
-    input.setAttribute('required', required);
-    input.setAttribute('id', "input-" + name);
-    inputContainer.appendChild(label);
-    inputContainer.appendChild(input);
-    form.appendChild(inputContainer);
-}
-function createSelectField(formId, name, fieldTitle, options) {
-    var form = document.getElementById(formId);
-    var selectContainer = document.createElement('div');
-    var label = document.createElement('label');
-    var select = document.createElement('select');
-    var option = document.createElement('option');
-    selectContainer.classList.add('d-flex', 'flex-column', 'mb-3');
-    label.setAttribute('for', fieldTitle);
-    label.classList.add('mb-1');
-    label.appendChild(document.createTextNode(fieldTitle));
-    select.setAttribute('name', name);
-    option.appendChild(document.createTextNode('Seleccione una opción'));
-    select.appendChild(option);
-    select.setAttribute('id', "select-" + name);
-    for (var i in options) {
-        var option_1 = document.createElement('option');
-        option_1.appendChild(document.createTextNode(options[i]));
-        select.appendChild(option_1);
-    }
-    selectContainer.appendChild(label);
-    selectContainer.appendChild(select);
-    form.appendChild(selectContainer);
-}
-function createTextAreaField(formId, name, fieldTitle, placeholder) {
-    var form = document.getElementById(formId);
-    var textAreaContainer = document.createElement('div');
-    var label = document.createElement('label');
-    var textArea = document.createElement('textarea');
-    textAreaContainer.classList.add('d-flex', 'flex-column', 'mb-3');
-    label.setAttribute('for', fieldTitle);
-    label.classList.add('mb-1');
-    label.appendChild(document.createTextNode(fieldTitle));
-    textArea.setAttribute('name', name);
-    textArea.setAttribute('placeholder', placeholder);
-    textArea.setAttribute('id', "textarea-" + name);
-    textAreaContainer.appendChild(label);
-    textAreaContainer.appendChild(textArea);
-    form.appendChild(textAreaContainer);
-}
 var createList = function (endpoint) { return __awaiter(_this, void 0, void 0, function () {
     var list, data;
     return __generator(this, function (_a) {
@@ -229,7 +197,7 @@ var addOptions = function (options, append, selected) { return __awaiter(_this, 
     });
 }); };
 var addSelectOptions = function (id, options) { return __awaiter(_this, void 0, void 0, function () {
-    var select, elements, i, option;
+    var select, elements, element, option;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -237,9 +205,9 @@ var addSelectOptions = function (id, options) { return __awaiter(_this, void 0, 
                 return [4 /*yield*/, options];
             case 1:
                 elements = _a.sent();
-                for (i in elements) {
+                for (element in elements) {
                     option = document.createElement('option');
-                    option.appendChild(document.createTextNode(elements[i]));
+                    option.appendChild(document.createTextNode(elements[element]));
                     select.appendChild(option);
                 }
                 return [2 /*return*/];

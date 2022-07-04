@@ -1,3 +1,7 @@
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
 var formAddJob = document.getElementById('form-add-job');
 addSelectOptions('select-location', createList('country'));
 addSelectOptions('select-seniority', createList('seniority'));

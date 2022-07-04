@@ -1,7 +1,9 @@
 .filter-form{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 50px 0px;
+
 }
 
 .form-item{
@@ -21,9 +23,19 @@
         height: 150px;
         width: 400px;
         padding: $padding;
+        @media (max-width: 550px){
+            max-width: 300px;;
+        }
     }
     &.add{
         width: 400px;
+        @media (max-width: 550px){
+            max-width: 300px;;
+        }
+    }
+
+    @media (max-width: 800px){
+        margin-bottom: 10px;
     }
 }
 .input-container{
@@ -39,4 +51,28 @@
 .form-add{
     margin: auto;
     margin-top: 50px;
+
+}
+
+.form-items{
+    @media (max-width: 992px){
+        margin: auto;
+        margin-bottom: 15px;
+    }
+    @media (max-width: 799px){
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+}
+
+.form-btns{
+    
+    @media (max-width: 992px){
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
 }
