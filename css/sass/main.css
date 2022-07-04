@@ -240,7 +240,7 @@
   border: 1px solid #17224e;
   border-radius: 5px;
   margin: 15px 5px;
-  height: 300px;
+  height: 350px;
   width: 300px;
   padding: 20px;
 }
@@ -256,10 +256,14 @@
 }
 .card .description {
   font-size: 15px;
+  min-height: 30%;
 }
 .card .min-description {
   height: 30%;
   overflow: hidden;
+}
+.card .tag-container {
+  min-height: 25%;
 }
 .card .tag-container .tag {
   margin-bottom: 10px;
@@ -272,6 +276,11 @@
 
 .footer {
   background-color: #68d388;
+  padding: 10px;
+  display: flex;
+}
+.footer span {
+  margin: auto;
 }
 
 *, *::after, *::before {

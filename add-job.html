@@ -1,17 +1,44 @@
+<!-- Job Finder 
+Language: HTML5 
+Authors: Vanessa Neira and Alejandra Trifilio
+Date 07-04-2022 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Job</title>
+    <title>Careers</title>
     <link rel="stylesheet" href="./css/sass/main.css">
+    <!-- Favicon start -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/job-finder.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/job-finder.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/job-finder.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/job-finder.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/job-finder.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/job-finder.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Favicon end -->
 </head>
 <body>
+    <!-- Header start -->
     <header class="top">
+        <!-- Page logo start -->
         <div>
             <h1 class="site-name"> Careers </h1>
         </div>
+        <!-- Page logo end -->
+        <!-- Hamburger menu start -->
         <button class="mobile-nav-toggle" aria-controls="nav-list" aria-expanded="false" id="mobile-nav-toggle">
             <span class="sr-only">Menu</span>
             <div class="hamburger" id="hamburger">
@@ -20,15 +47,20 @@
                 <span class="bottom-bun" aria-hidden="true"></span>
             </div>
         </button>
+        <!-- Hamburger menu end -->
+        <!-- Primary nav start -->
         <nav id="primary-nav" class="primary-nav">
             <ul id="nav-list" class="nav-list" data-visible="false">
                 <li class="list-item"><a href="./index.html" class="nav-link"> Home </a></li>
                 <li class="list-item"><a href="./add-job.html" class="nav-link"> Create Job </a></li>
             </ul>
         </nav>
+        <!-- Primary nav end -->
     </header>
+    <!-- Header end -->
     <main>
         <div class="container">
+            <!-- Adding jobs form start-->
             <form id="form-add-job" class="form-add">
                 <div class="input-container">
                     <label for="Job title" class="mb-1">Job title</label>
@@ -58,14 +90,17 @@
                     </select>
                 </div>
             </form>
-        
+            <!-- Adding jobs form end-->
         </div>
     </main>
-   
-    <footer class="footer"> Developed by Vanessa Neira and Alejandra Trifilio</footer>
+    <!-- Footer start -->
+    <footer class="footer"> <span> Developed by Vanessa Neira and Alejandra Trifilio </span> </footer>
+    <!-- Footer end -->
+    <!-- Scripts start-->
     <script src="./api/jobs-data.js"></script>
     <script src="./app/types.js"></script>
     <script src="./app/main.js"></script>
     <script src="./app/add-new-job.js"></script>
+    <!-- Scripts end -->
 </body>
 </html>

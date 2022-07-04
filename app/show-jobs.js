@@ -1,8 +1,13 @@
-console.log(parameters.toString());
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
 var cardContainer = document.getElementById('card-container');
+// Show all jobs //
 if (!window.location.href.includes('?')) {
     cardsCreator();
 }
+// Show filtered jobs //
 filterForm.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!parameters.toString().includes(locat)) {

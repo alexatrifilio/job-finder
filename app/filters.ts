@@ -1,3 +1,8 @@
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
+
 const button = document.getElementById('filter-btn') as HTMLButtonElement;
 const filterForm = document.getElementById('filter-form') as HTMLButtonElement;
 
@@ -25,7 +30,6 @@ addOptions(getElements('category'), categorySelect, category);
 // Add query params to URL //
 
 
-
 const queryParams = (select: HTMLSelectElement, param: string) => {
     
     select.addEventListener('change', (e) => {
@@ -41,7 +45,6 @@ const queryParams = (select: HTMLSelectElement, param: string) => {
 queryParams(locationSelect, 'location')
 queryParams(senioritySelect, 'seniority')
 queryParams(categorySelect, 'category')
-
 
 // Filter Jobs //
 

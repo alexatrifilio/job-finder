@@ -1,3 +1,9 @@
 .footer{
     background-color: $primary;
+    padding: 10px;
+    display: flex;
+
+    span{
+        margin: auto;
+    }
 }

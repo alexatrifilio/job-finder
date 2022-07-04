@@ -1,3 +1,8 @@
+// Job Finder script
+// Language: Typescript 
+// Authors: Vanessa Neira and Alejandra Trifilio
+// Date 07-04-2022
+
 let host= "https://62ab5f25a62365888bdafbfe.mockapi.io/api/v1"
 
 const postElement = async (data: object, endpoint: string): Promise<void> => {
